@@ -1,5 +1,5 @@
 import NavBar from "./components/NavBar";
-
+import Card from "./components/ArenaCard";
 function App() {
     return (
         <>
@@ -24,6 +24,13 @@ function App() {
                 }
                 alt=""
                 className="w-full"
+            />
+            <Card
+                nombre="Cancha San Martín"
+                disponible={3}
+                puntuacion={3.9}
+                ubicacion="San Pelayo, B/San Martín"
+                precio={70000}
             />
         </>
     );
