@@ -8,7 +8,7 @@ export default function FooterUnLogged(props) {
     return(
         <div className="pl-10 pr-10 flex flex-col items-center w-full h-screen bg-primary-800 text-white">
             <div className="h-1/3 flex items-center">
-                <h1 className="p-5 text-center">Reserva escenarios deportivos desde cualquier lugar y en cualquier momento</h1>
+                <h1 className="p-5 text-center">Anuncia tus escenarios deportivos y llega a más personas</h1>
             </div>
             <div className="h-1/3 flex grid-cols-3 w-full">
                 <div className="w-1/3 flex items-start flex-col">
