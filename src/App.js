@@ -1,5 +1,6 @@
 import NavBar from "./components/NavBar";
 import Card from "./components/ArenaCard";
+import Footer from "./components/Footer";
 function App() {
     return (
         <>
@@ -32,6 +33,7 @@ function App() {
                 ubicacion="San Pelayo, B/San Martín"
                 precio={70000}
             />
+            <Footer/>
         </>
     );
 }

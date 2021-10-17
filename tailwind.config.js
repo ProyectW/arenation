@@ -9,6 +9,7 @@ module.exports = {
             "secondary-dark": "#070928",
             "secondary-light": "#F8F8FA",
             "secondary-gray": "#9CA3AF",
+            "primary-800":"#0A142F",
             white: "#FFFFFF",
             danger: "#F16063",
             warning: "#FFB020",
@@ -20,6 +21,7 @@ module.exports = {
         },
         outline: {
             blue: ["2px solid #1045FF", "-2px"],
+            white: ["2px solid #FFFFFF", "-2px"]
         },
         extend: {},
     },
