@@ -1,7 +1,7 @@
 import React from "react";
-import NavBar from "./NavBar";
+import NavBar from "../components/NavBar";
 
-export default function Layout(props) {
+export default function LayoutAway(props) {
     return (
         <>
             <NavBar
