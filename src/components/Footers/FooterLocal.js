@@ -1,4 +1,3 @@
-import Button from "../Buttons/Buttons";
 import Logo from "../../assets/img/logo.svg";
 import LogoFacebook from "../../assets/img/iconFacebook.svg";
 import LogoInstagram from "../../assets/img/iconInstagram.svg";
