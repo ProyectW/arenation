@@ -17,6 +17,7 @@ export default function FooterUnLogged(props) {
                     handleClick={handleClick}
                     text="Quiero ser local"
                     className="text-white mr-2"
+                    link=""
                 />
             </div>
             <div className="h-1/4 flex grid-cols-3 w-full">

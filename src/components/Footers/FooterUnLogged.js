@@ -13,16 +13,19 @@ export default function FooterUnLogged(props) {
             </div>
             <div className="h-1/4 w-full flex items-center justify-center">
                 <Button
-                    type="outlinewhite"
+                    type="outline"
                     handleClick={handleClick}
                     text="Registrate"
                     className="text-white mr-2"
+                    color="white"
+                    link = ""
                 />
                 <Button
                     type="normal"
                     handleClick={handleClick}
                     text="Quiero ser local"
                     className="text-white mr-2"
+                    link = ""
                 />
             </div>
             <div className="h-1/4 flex grid-cols-3 w-full">

@@ -12,7 +12,7 @@ export default class Home extends React.Component {
                     alt=""
                     className="max-h-screen w-full object-cover"
                 />
-                <Footer />
+                <Footer footer="UnLogged"/>
             </>
         );
     }
