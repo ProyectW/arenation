@@ -8,7 +8,7 @@ import { Transition, Menu } from "@headlessui/react";
 
 import { Fragment, useState } from "react";
 
-export default function LoggedNavBar(props) {
+export default function LoggedAsLocalNavaBar(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [transparentNav, setTransparentNav] = useState(true);
     const location = useLocation();
@@ -43,7 +43,7 @@ export default function LoggedNavBar(props) {
                     <Button
                         type="normal"
                         handleClick={handleClick}
-                        text="Quiero ser local"
+                        text="Cambiar a local"
                         className="mr-2"
                     />
                     <Menu as="div" className="flex justify-center items-center">
@@ -151,9 +151,9 @@ export default function LoggedNavBar(props) {
                             </div>
                             <div className="flex items-center justify-center w-full pt-2">
                                 <Button
-                                    type="normal"
+                                    type="outline"
                                     handleClick={handleClick}
-                                    text="Cambiar a local"
+                                    text="Quiero ser local"
                                 />
                             </div>
                         </div>

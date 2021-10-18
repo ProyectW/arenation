@@ -3,49 +3,59 @@ import Avatar from "../Avatars/Avatar";
 import Logo from "../../assets/img/logo.svg";
 import { ReactComponent as MenuIcon } from "../../assets/img/menuIcon.svg";
 import { ReactComponent as CloseIcon } from "../../assets/img/closeIcon.svg";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, NavLink } from "react-router-dom";
 import { Transition, Menu } from "@headlessui/react";
 
 import { Fragment, useState } from "react";
 
-export default function LoggedNavBar(props) {
+export default function LocalNavBar(props) {
     const [isOpen, setIsOpen] = useState(false);
-    const [transparentNav, setTransparentNav] = useState(true);
-    const location = useLocation();
-
-    const changeBackground = () => {
-        if (location.pathname === "/") {
-            if (window.scrollY >= 50) {
-                setTransparentNav(false);
-            } else {
-                setTransparentNav(true);
-            }
-        } else {
-            setTransparentNav(false);
-        }
-    };
-
-    window.addEventListener("scroll", changeBackground);
 
     return (
-        <nav
-            className={`bg-white ${
-                transparentNav
-                    ? "bg-opacity-0 shadow-none"
-                    : "bg-opacity-100 shadow-md"
-            } fixed left-0 right-0 z-10`}
-        >
+        <nav className="bg-white bg-opacity-100 shadow-md fixed left-0 right-0 z-10">
             <div className="px-8 py-2 sm:px-16 flex justify-between items-center">
                 <Link to="/">
                     <img src={Logo} alt="Arenation Logo" />
                 </Link>
+                <div className="hidden md:flex items-center justify-center">
+                    <NavLink
+                        to="/arenas"
+                        className="font-semibold text-secondary-gray pr-2"
+                        activeStyle={{
+                            color: "#1045FF",
+                        }}
+                    >
+                        Anuncios
+                    </NavLink>
+                    <NavLink
+                        to="/Bookings"
+                        className="font-semibold text-secondary-gray pr-2"
+                        activeStyle={{
+                            color: "#1045FF",
+                        }}
+                    >
+                        Reservas
+                    </NavLink>
+                    <NavLink
+                        to="/Dashboard"
+                        className="font-semibold text-secondary-gray pr-2"
+                        activeStyle={{
+                            color: "#1045FF",
+                        }}
+                    >
+                        Dashboard
+                    </NavLink>{" "}
+                    <NavLink
+                        to="/Schedule"
+                        className="font-semibold text-secondary-gray"
+                        activeStyle={{
+                            color: "#1045FF",
+                        }}
+                    >
+                        Calendario
+                    </NavLink>
+                </div>
                 <div className="hidden md:flex items-center">
-                    <Button
-                        type="normal"
-                        handleClick={handleClick}
-                        text="Quiero ser local"
-                        className="mr-2"
-                    />
                     <Menu as="div" className="flex justify-center items-center">
                         <Menu.Button>
                             <Avatar
@@ -64,19 +74,8 @@ export default function LoggedNavBar(props) {
                         >
                             <Menu.Items className=" flex flex-col divide-y-2 divide-secondary-gray divide-opacity-20 origin-top-right absolute right-16 top-20 rounded-md shadow-md pl-3 py-4 pr-4 bg-white focus:outline-none">
                                 <div className="flex flex-col">
-                                    <Link to="/" className="pb-1">
-                                        Notificaciones
-                                    </Link>
-                                    <Link to="/" className="pb-1">
-                                        Mis reservas{" "}
-                                    </Link>
-                                    <Link to="/" className="pb-2">
-                                        Escenarios Favoritos
-                                    </Link>
-                                </div>
-                                <div className="flex flex-col">
                                     <Link to="/" className="py-1">
-                                        Cambiar a local
+                                        Cambiar a visitante
                                     </Link>
                                     <Link to="/" className="pb-2">
                                         Mi cuenta
@@ -127,19 +126,46 @@ export default function LoggedNavBar(props) {
                             </div>
                             <div className="flex flex-col items-end justify-center divide-y-2 divide-secondary-gray divide-opacity-20  w-full text-secondary-dark">
                                 <div className="flex flex-col  text-right w-full">
-                                    <Link to="/" className="py-1">
-                                        Notificaciones
-                                    </Link>
-                                    <Link to="/" className="pb-1">
-                                        Mis reservas{" "}
-                                    </Link>
-                                    <Link to="/" className="pb-2">
-                                        Escenarios Favoritos
-                                    </Link>
+                                    <NavLink
+                                        to="/arenas"
+                                        className="py-1"
+                                        activeStyle={{
+                                            color: "#1045FF",
+                                        }}
+                                    >
+                                        Anuncios
+                                    </NavLink>
+                                    <NavLink
+                                        to="/Bookings"
+                                        className="pb-1"
+                                        activeStyle={{
+                                            color: "#1045FF",
+                                        }}
+                                    >
+                                        Reservas
+                                    </NavLink>
+                                    <NavLink
+                                        to="/Dashboard"
+                                        className="pb-1"
+                                        activeStyle={{
+                                            color: "#1045FF",
+                                        }}
+                                    >
+                                        Dashboard
+                                    </NavLink>{" "}
+                                    <NavLink
+                                        to="/Schedule"
+                                        className="py-1"
+                                        activeStyle={{
+                                            color: "#1045FF",
+                                        }}
+                                    >
+                                        Calendario
+                                    </NavLink>
                                 </div>
                                 <div className="flex flex-col text-right w-full">
                                     <Link to="/" className="py-1">
-                                        Cambiar a local
+                                        Cambiar a visitante
                                     </Link>
                                     <Link to="/" className="pb-2">
                                         Mi cuenta
@@ -151,9 +177,9 @@ export default function LoggedNavBar(props) {
                             </div>
                             <div className="flex items-center justify-center w-full pt-2">
                                 <Button
-                                    type="normal"
+                                    type="outline"
                                     handleClick={handleClick}
-                                    text="Cambiar a local"
+                                    text="Quiero ser local"
                                 />
                             </div>
                         </div>
