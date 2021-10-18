@@ -4,7 +4,12 @@ import NavBar from "./NavBar";
 export default function Layout(props) {
     return (
         <>
-            <NavBar />
+            <NavBar
+                isLog={true}
+                isLocal={true}
+                isAway={false}
+                openManager={true}
+            />
             {props.children}
         </>
     );
