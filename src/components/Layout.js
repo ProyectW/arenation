@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 export default function Layout(props) {
     return (
         <>
-            <NavBar />
+            <NavBar isLog={true} />
             {props.children}
         </>
     );
