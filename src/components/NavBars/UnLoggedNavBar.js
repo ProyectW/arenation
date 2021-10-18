@@ -3,6 +3,7 @@ import Avatar from "../Avatars/Avatar";
 import Logo from "../../assets/img/logo.svg";
 import { ReactComponent as MenuIcon } from "../../assets/img/menuIcon.svg";
 import { ReactComponent as CloseIcon } from "../../assets/img/closeIcon.svg";
+import { useLocation } from "react-router-dom";
 import { Transition, Menu } from "@headlessui/react";
 
 import { Fragment, useState } from "react";
@@ -11,8 +12,7 @@ export default function UnLoggedNavBar() {
     const [isOpen, setIsOpen] = useState(false);
     const [transparentNav, setTransparentNav] = useState(false);
 
-    const changeBackground = () => {
-        console.log(window.scrollY);
+    const useChangeBackground = () => {
         if (window.scrollY >= 50) {
             setTransparentNav(true);
         } else {
@@ -20,7 +20,7 @@ export default function UnLoggedNavBar() {
         }
     };
 
-    window.addEventListener("scroll", changeBackground);
+    window.addEventListener("scroll", useChangeBackground);
     return (
         <nav
             className={`bg-white ${
