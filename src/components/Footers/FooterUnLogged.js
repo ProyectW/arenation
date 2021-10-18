@@ -3,6 +3,7 @@ import Logo from "../../assets/img/logo.svg";
 import LogoFacebook from "../../assets/img/iconFacebook.svg";
 import LogoInstagram from "../../assets/img/iconInstagram.svg";
 import LogoTwitter from "../../assets/img/iconTwitter.svg";
+import { Link } from "react-router-dom";
 
 export default function FooterUnLogged(props) {
     return(
@@ -29,13 +30,13 @@ export default function FooterUnLogged(props) {
                     <h4>Navegación</h4>
                     <ul>
                         <li>
-                            <a href="#">Inicio</a>
+                            <Link to="">Inicio</Link>
                         </li>
                         <li>
-                            <a href="#">Escenario deportivos</a>
+                            <Link to="">Escenario deportivos</Link>
                         </li>
                         <li>
-                            <a href="#">Ser Local</a>
+                            <Link to="">Ser Local</Link>
                         </li>
                     </ul>
                 </div>
@@ -43,13 +44,13 @@ export default function FooterUnLogged(props) {
                     <h4>Aspectos Legales</h4>
                     <ul>
                         <li>
-                            <a href="#">Información general</a>
+                            <Link to="">Información general</Link>
                         </li>
                         <li>
-                            <a href="#">Politicas de privacidad</a>
+                            <Link to="">Politicas de privacidad</Link>
                         </li>
                         <li>
-                            <a href="#">Términos de servicio</a>
+                            <Link to="">Términos de servicio</Link>
                         </li>
                     </ul>
                 </div>
@@ -57,19 +58,19 @@ export default function FooterUnLogged(props) {
                     <h4>Habla con nosotros</h4>
                     <ul>
                         <li>
-                            <a href="#">support@arenation.com</a>
+                            <Link to="">support@arenation.com</Link>
                         </li>
                         <li>
-                            <a href="#">+57 300 0000 000</a>
+                            <Link to="">+57 310 608 3446</Link>
                         </li>
                         <li>
-                            <a href="#">Facebook</a>
+                            <Link to="">Facebook</Link>
                         </li>
                         <li>
-                            <a href="#">LinkedIn</a>
+                            <Link to="">LinkedIn</Link>
                         </li>
                         <li>
-                            <a href="#">Twitter</a>
+                            <Link to="">Twitter</Link>
                         </li>
                     </ul>
                 </div>
