@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export default function FooterUnLogged(props) {
     return(
-        <div className="pl-10 pr-10 flex flex-col items-center w-full h-screen bg-primary-800 text-white">
+        <div className="object-cover pl-10 pr-10 flex flex-col items-center w-full h-screen bg-primary-800 text-white">
             <div className="h-1/4 flex items-center">
                 <h1 className="p-5 text-center">Reserva escenarios deportivos desde cualquier lugar y en cualquier momento</h1>
             </div>
