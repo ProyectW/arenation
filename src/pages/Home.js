@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "../components/Footer";
+import Log from "../components/LogCard";
 
 export default class Home extends React.Component {
     render() {
@@ -13,6 +14,7 @@ export default class Home extends React.Component {
                     className="max-h-screen w-full object-cover"
                 />
                 <Footer footer="UnLogged"/>
+                <Log log="login"/>
             </>
         );
     }
