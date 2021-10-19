@@ -8,15 +8,15 @@ import Button from "./Controls/Buttons";
 export default class Hero extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { location: "", sport: "1", date: "" };
+        this.state = { location: "", sport: "", date: "" };
         this.handleLocationChange = this.handleLocationChange.bind(this);
-        this.habdleSportChange = this.handleSportChange.bind(this);
+        this.handleSportChange = this.handleSportChange.bind(this);
         this.habdleDateChange = this.handleDateChange.bind(this);
         this.handleClickSearch = this.handleClickSearch.bind(this);
         this.options = [
-            { value: "1", text: "F&uacute;bol" },
-            { value: "2", text: "Baloncesto" },
-            { value: "3", text: "B&eacute;isbol" },
+            { text: "Fútbol" },
+            { text: "Baloncesto" },
+            { text: "Béisbol" },
         ];
     }
 
@@ -87,6 +87,7 @@ export default class Hero extends React.Component {
                         type="normal"
                         text="Ver todos los escenarios"
                         handleClick={this.handleClickSearch}
+                        link="/"
                     />
                     <ArrowIcon className="fill-current text-white pt-6 w-8 animate-bounce" />
                 </div>

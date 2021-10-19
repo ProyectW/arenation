@@ -59,17 +59,17 @@ export default function Input(props) {
                 <label className="font-semibold text-secondary-dark text-sm">
                     {props.label}
                 </label>
-                <select value={props.value} onChange={props.handleInputChange}>
-                    {this.props.options.forEach((element) => {
-                        <option value={element.value}>{element.text}</option>;
-                    })}
-                </select>
-                {/* <input
-                    type={props.type}
-                    placeholder={props.placeholder}
-                    className={`py-1 bg-${props.color} placeholder-secondary-gray focus:outline-none`}
+                <select
+                    value={props.value}
                     onChange={props.handleInputChange}
-                /> */}
+                    className="outline-none py-1"
+                >
+                    {props.options.map((element, index) => (
+                        <option value={index} key={index}>
+                            {element.text}
+                        </option>
+                    ))}
+                </select>
             </div>
         );
     } else {
