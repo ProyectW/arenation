@@ -1,4 +1,4 @@
-import Button from "../Buttons/Buttons";
+import Button from "../Controls/Buttons";
 import Avatar from "../Avatars/Avatar";
 import Logo from "../../assets/img/logo.svg";
 import { ReactComponent as MenuIcon } from "../../assets/img/menuIcon.svg";

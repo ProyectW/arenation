@@ -1,4 +1,4 @@
-import Button from "../Buttons/Buttons";
+import Button from "../Controls/Buttons";
 import Avatar from "../Avatars/Avatar";
 import Logo from "../../assets/img/logo.svg";
 import { ReactComponent as MenuIcon } from "../../assets/img/menuIcon.svg";
@@ -45,12 +45,15 @@ export default function UnLoggedNavBar() {
                         handleClick={handleClick}
                         text="Registrate"
                         className="mr-2"
+                        link="/"
                     />
                     <Button
                         type="outline"
                         handleClick={handleClick}
                         text="Quiero ser local"
                         className="mr-2"
+                        color="blue"
+                        link="/"
                     />
                     <Menu as="div" className="flex justify-center items-center">
                         <Menu.Button>
@@ -114,11 +117,14 @@ export default function UnLoggedNavBar() {
                                     handleClick={handleClick}
                                     text="Registrate"
                                     className="mr-2"
+                                    link="/"
                                 />
                                 <Button
                                     type="outline"
                                     handleClick={handleClick}
                                     text="Quiero ser local"
+                                    color="blue"
+                                    link="/"
                                 />
                             </div>
                         </div>
