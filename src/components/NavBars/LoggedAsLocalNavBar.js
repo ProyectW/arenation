@@ -8,7 +8,7 @@ import { Transition, Menu } from "@headlessui/react";
 
 import { Fragment, useState } from "react";
 
-export default function UnLoggedNavBar() {
+export default function LoggedAsLocalNavaBar(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [transparentNav, setTransparentNav] = useState(true);
     const location = useLocation();
@@ -43,21 +43,15 @@ export default function UnLoggedNavBar() {
                     <Button
                         type="normal"
                         handleClick={handleClick}
-                        text="Registrate"
+                        text="Cambiar a local"
                         className="mr-2"
-                        link="/"
-                    />
-                    <Button
-                        type="outline"
-                        handleClick={handleClick}
-                        text="Quiero ser local"
-                        className="mr-2"
-                        color="blue"
-                        link="/"
                     />
                     <Menu as="div" className="flex justify-center items-center">
                         <Menu.Button>
-                            <Avatar isLogged={false} />
+                            <Avatar
+                                isLogged={true}
+                                avatar={props.userData.avatar}
+                            />
                         </Menu.Button>
                         <Transition
                             as={Fragment}
@@ -70,13 +64,28 @@ export default function UnLoggedNavBar() {
                         >
                             <Menu.Items className=" flex flex-col divide-y-2 divide-secondary-gray divide-opacity-20 origin-top-right absolute right-16 top-20 rounded-md shadow-md pl-3 py-4 pr-4 bg-white focus:outline-none">
                                 <div className="flex flex-col">
-                                    <p className="pb-1">Registrarse</p>
-                                    <p className="pb-1">
-                                        Iniciar sesi&oacute;n
-                                    </p>
+                                    <Link to="/" className="pb-1">
+                                        Notificaciones
+                                    </Link>
+                                    <Link to="/" className="pb-1">
+                                        Mis reservas{" "}
+                                    </Link>
+                                    <Link to="/" className="pb-2">
+                                        Escenarios Favoritos
+                                    </Link>
                                 </div>
                                 <div className="flex flex-col">
-                                    <p className="">Ser local</p>
+                                    <Link to="/" className="py-1">
+                                        Cambiar a local
+                                    </Link>
+                                    <Link to="/" className="pb-2">
+                                        Mi cuenta
+                                    </Link>
+                                </div>
+                                <div className="flex flex-col">
+                                    <Link to="/" className="py-1">
+                                        Cerrar sesi&oacute;n
+                                    </Link>
                                 </div>
                             </Menu.Items>
                         </Transition>
@@ -104,27 +113,47 @@ export default function UnLoggedNavBar() {
             >
                 {(ref) => (
                     <div className="md:hidden px-8 sm:px-16 py-4 ">
-                        <div className="w-full flex flex-col divide-y-2 divide-secondary-gray divide-opacity-20 justify-start items-end bg-white p-4 rounded-2xl">
-                            <div className="flex items-center justify-end w-full">
-                                <Link to="/" className="pr-2 cursor-pointer">
-                                    Iniciar sesión
-                                </Link>
-                                <Avatar isLogged={false} className="mb-2" />
+                        <div className="flex flex-col divide-y-2 divide-secondary-gray divide-opacity-20 justify-center items-end bg-white p-4 rounded-2xl">
+                            <div className="flex items-center justify-end">
+                                <a href="/" className="pr-2 cursor-pointer">
+                                    {props.userData.userName}{" "}
+                                    {props.userData.userLastname}
+                                </a>
+                                <Avatar
+                                    isLogged={true}
+                                    avatar={props.userData.avatar}
+                                    className="mb-2"
+                                />
+                            </div>
+                            <div className="flex flex-col items-end justify-center divide-y-2 divide-secondary-gray divide-opacity-20  w-full text-secondary-dark">
+                                <div className="flex flex-col  text-right w-full">
+                                    <Link to="/" className="py-1">
+                                        Notificaciones
+                                    </Link>
+                                    <Link to="/" className="pb-1">
+                                        Mis reservas{" "}
+                                    </Link>
+                                    <Link to="/" className="pb-2">
+                                        Escenarios Favoritos
+                                    </Link>
+                                </div>
+                                <div className="flex flex-col text-right w-full">
+                                    <Link to="/" className="py-1">
+                                        Cambiar a local
+                                    </Link>
+                                    <Link to="/" className="pb-2">
+                                        Mi cuenta
+                                    </Link>
+                                    <Link to="/" className="pb-2">
+                                        Cerrar sesi&oacute;n
+                                    </Link>
+                                </div>
                             </div>
                             <div className="flex items-center justify-center w-full pt-2">
-                                <Button
-                                    type="normal"
-                                    handleClick={handleClick}
-                                    text="Registrate"
-                                    className="mr-2"
-                                    link="/"
-                                />
                                 <Button
                                     type="outline"
                                     handleClick={handleClick}
                                     text="Quiero ser local"
-                                    color="blue"
-                                    link="/"
                                 />
                             </div>
                         </div>

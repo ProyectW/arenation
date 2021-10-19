@@ -5,16 +5,16 @@ import LogoInstagram from "../../assets/img/iconInstagram.svg";
 import LogoTwitter from "../../assets/img/iconTwitter.svg";
 import { Link } from "react-router-dom";
 
-export default function FooterUnLogged(props) {
+export default function FooterLocal(props) {
     return (
-        <div className="pl-10 pr-10 flex flex-col items-center w-full h-screen bg-primary-800 text-white object-cover">
-            <div className="h-1/3 flex items-center">
-                <h1 className="p-5 text-center">
+        <div className="px-8 md:px-12 flex flex-col items-center w-full bg-primary-800 text-white">
+            <div className="flex items-center">
+                <h1 className="py-12 text-center">
                     Anuncia tus escenarios deportivos y llega a más personas
                 </h1>
             </div>
-            <div className="h-1/3 flex grid-cols-3 w-full">
-            <div className="w-1/3 flex items-start flex-col">
+            <div className="flex flex-col md:flex-row justify-center items-center md:items-start text-center md:text-left w-full pb-12 border-b-2">
+                <div className="md:w-1/3 flex flex-col pb-6 md:pb-0">
                     <h4>Navegación</h4>
                     <ul>
                         <li>
@@ -28,7 +28,7 @@ export default function FooterUnLogged(props) {
                         </li>
                     </ul>
                 </div>
-                <div className="w-1/3 flex flex-col items-center">
+                <div className="md:w-1/3 flex flex-col pb-6 md:pb-0">
                     <h4>Aspectos Legales</h4>
                     <ul>
                         <li>
@@ -42,7 +42,7 @@ export default function FooterUnLogged(props) {
                         </li>
                     </ul>
                 </div>
-                <div className="w-1/3 flex flex-col items-end">
+                <div className="md:w-1/3 flex flex-col items-center md:items-start">
                     <h4>Habla con nosotros</h4>
                     <ul>
                         <li>
@@ -63,14 +63,14 @@ export default function FooterUnLogged(props) {
                     </ul>
                 </div>
             </div>
-            <div className="border-t w-full h-1/3 flex items-center">
-                <div className="w-1/3 flex justify-start">
+            <div className="w-full flex flex-col md:flex-row items-center py-12">
+                <div className="md:w-1/3 flex justify-start pb-6 md:pb-0">
                     <img src={Logo} alt="Arenation Logo" />
                 </div>
-                <div className="w-1/3 flex justify-center">
-                    © 2021 Arenation. All Rights Reserved.{" "}
+                <div className="md:w-1/3 flex justify-center text-center pb-6 md:pb-0">
+                    © 2021 Arenation. All Rights Reserved.
                 </div>
-                <div className="w-1/3 flex justify-end">
+                <div className="md: w-1/3 flex justify-center md:justify-end">
                     <Link to="">
                         <img
                             src={LogoFacebook}
