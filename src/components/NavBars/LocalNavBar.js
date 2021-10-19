@@ -3,7 +3,7 @@ import Avatar from "../Avatars/Avatar";
 import Logo from "../../assets/img/logo.svg";
 import { ReactComponent as MenuIcon } from "../../assets/img/menuIcon.svg";
 import { ReactComponent as CloseIcon } from "../../assets/img/closeIcon.svg";
-import { useLocation, Link, NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Transition, Menu } from "@headlessui/react";
 
 import { Fragment, useState } from "react";

@@ -15,7 +15,7 @@ export default function LoggedAsLocalNavaBar(props) {
 
     const changeBackground = () => {
         if (location.pathname === "/") {
-            if (window.scrollY >= 50) {
+            if (window.scrollY >= 20) {
                 setTransparentNav(false);
             } else {
                 setTransparentNav(true);
