@@ -8,16 +8,16 @@ import Button from "./Controls/Buttons";
 export default class Hero extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { location: "", sport: "", date: "" };
+        this.options = [
+            { id: 1, text: "Fútbol" },
+            { id: 2, text: "Baloncesto" },
+            { id: 3, text: "Béisbol" },
+        ];
+        this.state = { location: "", selectedSport: this.options[0], date: "" };
         this.handleLocationChange = this.handleLocationChange.bind(this);
         this.handleSportChange = this.handleSportChange.bind(this);
         this.habdleDateChange = this.handleDateChange.bind(this);
         this.handleClickSearch = this.handleClickSearch.bind(this);
-        this.options = [
-            { text: "Fútbol" },
-            { text: "Baloncesto" },
-            { text: "Béisbol" },
-        ];
     }
 
     handleLocationChange(event) {
@@ -25,7 +25,8 @@ export default class Hero extends React.Component {
     }
 
     handleSportChange(event) {
-        this.setState({ sport: event.target.value });
+        console.log(event.target);
+        //this.setState({ selectedSport: event.target.value });
     }
 
     handleDateChange(event) {
@@ -60,8 +61,8 @@ export default class Hero extends React.Component {
                             type="select"
                             placeholder="¿Qu&eacute; quieres jugar?"
                             label="Deporte"
-                            color="white white w-full"
-                            value={this.state.sport}
+                            color="white w-full"
+                            value={this.state.selectedSport}
                             handleInputChange={this.handleSportChange}
                             options={this.options}
                         ></Input>
