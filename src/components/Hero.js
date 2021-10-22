@@ -2,7 +2,7 @@ import Input from "./Controls/Input";
 import { useState } from "react";
 import { ReactComponent as SearchIcon } from "../assets/img/iconSearch.svg";
 import { ReactComponent as ArrowIcon } from "../assets/img/iconArrow.svg";
-import ListBox from "./Controls/DropDown";
+import { ListBox, SimpleDatePicker } from "./Controls/DropDown";
 import Button from "./Controls/Buttons";
 
 export default function Hero() {
@@ -52,13 +52,13 @@ export default function Hero() {
                         setSelected={setSelectedSport}
                         selected={selectedSport}
                     />
-                    <Input
-                        type="text"
+                    <SimpleDatePicker
                         placeholder="¿Qu&eacute; d&iacute;a quieres jugar?"
                         label="Fecha"
                         color="white white w-full"
-                        handleInputChange={handleDateChange}
-                    ></Input>
+                        date={date}
+                        setDate={setDate}
+                    ></SimpleDatePicker>
                     <button
                         onClick={handleSearchClick}
                         className="p-4 md:px-5 rounded-lg bg-primary-500 flex items-center justify-center"
