@@ -62,7 +62,7 @@ export default function Input(props) {
                 <input
                     type={props.type}
                     placeholder={props.placeholder}
-                    className={`py-1 bg-${props.color} placeholder-secondary-gray focus:outline-none`}
+                    className={`py-1 bg-${props.color}  placeholder-secondary-gray focus:outline-none text-base text-secondary-dark`}
                     onChange={props.handleInputChange}
                 />
             </div>
