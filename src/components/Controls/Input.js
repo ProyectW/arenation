@@ -1,6 +1,4 @@
-import React, { useState, Fragment } from "react";
-import { Listbox, Transition } from "@headlessui/react";
-import { ReactComponent as UpDownIcon } from "../../assets/img/iconUpDown.svg";
+import React, { useState } from "react";
 
 export default function Input(props) {
     const [isHidden, setHidden] = useState(true);
@@ -51,59 +49,6 @@ export default function Input(props) {
                         onChange={props.handleInputChange}
                     />
                 </div>
-            </div>
-        );
-    } else if (props.type === "select") {
-        return (
-            <div
-                className={`flex flex-col p-2 bg-${props.color} text-secondary-dark rounded-lg w-full`}
-            >
-                <label className="font-semibold text-secondary-dark text-sm">
-                    {props.label}
-                </label>
-                <Listbox value={props.value} onChange={props.handleInputChange}>
-                    <div className="py-1 text-secondary-dark focus:outline-none">
-                        <Listbox.Button className="flex justify-between w-full focus:outline-none">
-                            <span>{props.value.text}</span>
-                            <UpDownIcon className="fill-current text-secondary-gray w-4" />
-                        </Listbox.Button>
-                        <Transition
-                            as={Fragment}
-                            leave="transition ease-in duration-100"
-                            leaveFrom="opacity-100"
-                            leaveTo="opacity-0"
-                        >
-                            <Listbox.Options className="absolute flex flex-col bg-white max-h-48 leading-6 rounded-lg py-4 pl-4 pr-8 shadow-xl overflow-auto focus:outline-none">
-                                {props.options.map((sportItem) => (
-                                    <Listbox.Option
-                                        key={sportItem.id}
-                                        className={({ active }) =>
-                                            `${
-                                                active
-                                                    ? "text-primary-500"
-                                                    : "text-secondary-dark"
-                                            } cursor-pointer select-none`
-                                        }
-                                        value={sportItem}
-                                    >
-                                        {sportItem.text}
-                                    </Listbox.Option>
-                                ))}
-                            </Listbox.Options>
-                        </Transition>
-                    </div>
-                </Listbox>
-                {/* <select
-                    value={props.value}
-                    onChange={props.handleInputChange}
-                    className="outline-none py-1"
-                >
-                    {props.options.map((element, index) => (
-                        <option value={index} key={index}>
-                            {element.text}
-                        </option>
-                    ))}
-                </select> */}
             </div>
         );
     } else {
