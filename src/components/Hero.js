@@ -1,5 +1,6 @@
 import Input from "./Controls/Input";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { ReactComponent as SearchIcon } from "../assets/img/iconSearch.svg";
 import { ReactComponent as ArrowIcon } from "../assets/img/iconArrow.svg";
 import { ListBox, SimpleDatePicker } from "./Controls/DropDown";
@@ -59,12 +60,14 @@ export default function Hero() {
                         date={date}
                         setDate={setDate}
                     ></SimpleDatePicker>
-                    <button
-                        onClick={handleSearchClick}
-                        className="p-4 md:px-5 rounded-lg bg-primary-500 flex items-center justify-center"
-                    >
-                        <SearchIcon className="fill-current text-white" />
-                    </button>
+                    <Link to="/arenas">
+                        <button
+                            onClick={handleSearchClick}
+                            className="p-4 md:px-5 rounded-lg bg-primary-500 flex items-center justify-center"
+                        >
+                            <SearchIcon className="fill-current text-white" />
+                        </button>
+                    </Link>
                 </div>
                 <h2 className="text-center py-4 text-xl md:text-3xl">
                     Reserva escenarios deportivos cuando quieras y desde dónde
