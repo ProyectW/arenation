@@ -63,7 +63,7 @@ export default function Hero() {
                     <Link to="/arenas">
                         <button
                             onClick={handleSearchClick}
-                            className="p-4 md:px-5 rounded-lg bg-primary-500 flex items-center justify-center"
+                            className="p-4 md:px-5 rounded-lg w-full h-full md:w-auto bg-primary-500 flex items-center justify-center"
                         >
                             <SearchIcon className="fill-current text-white" />
                         </button>

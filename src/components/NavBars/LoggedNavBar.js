@@ -33,7 +33,7 @@ export default function LoggedNavBar(props) {
                 transparentNav
                     ? "bg-opacity-0 shadow-none"
                     : "bg-opacity-100 shadow-md"
-            } fixed left-0 right-0 z-10`}
+            } fixed left-0 right-0 z-20`}
         >
             <div className="px-8 py-2 sm:px-16 flex justify-between items-center">
                 <Link to="/">

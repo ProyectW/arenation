@@ -12,7 +12,7 @@ export default function LocalNavBar(props) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="bg-white bg-opacity-100 shadow-md fixed left-0 right-0 z-10">
+        <nav className="bg-white bg-opacity-100 shadow-md fixed left-0 right-0 z-20">
             <div className="px-8 py-2 sm:px-16 flex justify-between items-center">
                 <Link to="/">
                     <img src={Logo} alt="Arenation Logo" />
