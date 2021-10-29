@@ -16,7 +16,7 @@ export default function Button(props) {
         return (
             <Link to={props.link}>
                 <button
-                    className={`text-primary-500 font-semibold outline-${props.color} px-5 py-3 rounded-lg ${props.className}`}
+                    className={`text-${props.textColor} font-semibold outline-${props.color} px-5 py-3 rounded-lg ${props.className}`}
                     onClick={props.handleClick}
                 >
                     {props.text}

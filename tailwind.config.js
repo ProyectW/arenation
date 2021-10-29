@@ -23,6 +23,10 @@ module.exports = {
             outline: {
                 blue: ["2px solid #1045FF", "-2px"],
                 white: ["2px solid #FFFFFF", "-2px"],
+                dark: ["2px solid #070928", "-2px"],
+            },
+            boxShadow: {
+                DropDown: "box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2)",
             },
         },
     },

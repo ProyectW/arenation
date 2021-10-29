@@ -1,4 +1,4 @@
-import Input from "./Controls/Input";
+import { Input } from "./Controls/Input";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as SearchIcon } from "../assets/img/iconSearch.svg";

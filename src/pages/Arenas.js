@@ -5,11 +5,12 @@ export default class Arenas extends React.Component {
     render() {
         const filterOptions = {
             sport: "Fútbol",
-            city: "Montería",
+            city: "San Pelayo",
             resultCount: 20,
         };
+
         return (
-            <div className="pt-16">
+            <div className="pt-16 pb-44">
                 <SearchResultsHeader filter={filterOptions} />
             </div>
         );

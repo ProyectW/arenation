@@ -53,6 +53,7 @@ export default function UnLoggedNavBar() {
                         text="Quiero ser local"
                         className="mr-2"
                         color="blue"
+                        textColor="primary-500"
                         link="/"
                     />
                     <Menu as="div" className="flex justify-center items-center">

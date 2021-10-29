@@ -1,6 +1,8 @@
-import { Listbox, Transition } from "@headlessui/react";
+import { Listbox, Transition, Popover } from "@headlessui/react";
 import { ReactComponent as UpDownIcon } from "../../assets/img/iconUpDown.svg";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
+import { AutocompleteInput } from "./Input";
+import { ReactComponent as CheckIcon } from "../../assets/img/iconCheck.svg";
 /*DatePicker Imports*/
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
 import "./css/DropDown.css";
@@ -59,6 +61,67 @@ function ListBox(props) {
             ))}
         </select> */}
         </div>
+    );
+}
+
+function ButtonAutocompleteDropDown(props) {
+    const [inputValue, setInputValue] = useState("");
+    const handleButtonClick = () => {
+        props.setValue(inputValue);
+    };
+    return (
+        <>
+            <Popover as="div">
+                <Popover.Button
+                    className={`text-${
+                        props.value ? "primary-500" : "secondary-dark"
+                    } font-semibold outline-${
+                        props.value ? "blue" : "dark"
+                    } px-5 py-3 rounded-lg ${props.className}`}
+                >
+                    {props.value ? props.value : props.textInitialValue}
+                </Popover.Button>
+                <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                >
+                    <Popover.Panel className="absolute flex flex-col bg-white mt-6 max-h-48 leading-6 rounded-lg p-4 shadow-md overflow-auto focus:outline-none z-10">
+                        <div className="flex">
+                            <AutocompleteInput
+                                icon={props.listIcon}
+                                type="text"
+                                label={props.inputLabel}
+                                placeholder={props.inputPlaceholder}
+                                color="secondary-light"
+                                handleInputChange={(value) =>
+                                    setInputValue(value)
+                                }
+                                className="w-full"
+                                suggestions={[
+                                    "Montería",
+                                    "Sahagún",
+                                    "San Pelayo",
+                                    "San Carlos",
+                                    "Cereté",
+                                    "Montelibano",
+                                ]}
+                            />
+                            <button
+                                className="bg-primary-500 p-4 ml-4 h-16 rounded-lg"
+                                onClick={handleButtonClick}
+                            >
+                                <CheckIcon className="text-white fill-current" />
+                            </button>
+                        </div>
+                    </Popover.Panel>
+                </Transition>
+            </Popover>
+        </>
     );
 }
 
@@ -177,7 +240,7 @@ function SimpleDatePicker(props) {
 
     return (
         <div
-            className={`flex flex-col p-2 ${props.className} text-secondary-dark rounded-lg w-full`}
+            className={`flex flex-col p-2 ${props.className} text-secondary-dark rounded-shadow-xl w-full`}
         >
             <label className="font-semibold text-secondary-dark text-sm">
                 {props.label}
@@ -199,4 +262,4 @@ function SimpleDatePicker(props) {
     );
 }
 
-export { SimpleDatePicker, ListBox };
+export { SimpleDatePicker, ListBox, ButtonAutocompleteDropDown };
