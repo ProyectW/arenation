@@ -93,7 +93,6 @@ function ButtonAutocompleteDropDown(props) {
                     <Popover.Panel className="absolute flex flex-col bg-white mt-6 max-h-48 leading-6 rounded-lg p-4 shadow-md overflow-auto focus:outline-none z-10">
                         <div className="flex">
                             <AutocompleteInput
-                                icon={props.listIcon}
                                 type="text"
                                 label={props.inputLabel}
                                 placeholder={props.inputPlaceholder}
@@ -102,14 +101,7 @@ function ButtonAutocompleteDropDown(props) {
                                     setInputValue(value)
                                 }
                                 className="w-full"
-                                suggestions={[
-                                    "Montería",
-                                    "Sahagún",
-                                    "San Pelayo",
-                                    "San Carlos",
-                                    "Cereté",
-                                    "Montelibano",
-                                ]}
+                                suggestions={props.suggestions}
                             />
                             <button
                                 className="bg-primary-500 p-4 ml-4 h-16 rounded-lg"

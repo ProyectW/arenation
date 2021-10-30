@@ -81,7 +81,7 @@ function AutocompleteInput(props) {
         // Filtramos las recomendaciones que contienen la entrada
         const linked = props.suggestions.filter(
             (suggestion) =>
-                suggestion.toLowerCase().indexOf(input.toLowerCase()) > -1
+                suggestion.text.toLowerCase().indexOf(input.toLowerCase()) > -1
         );
 
         setInputValue(e.target.value);
@@ -104,11 +104,11 @@ function AutocompleteInput(props) {
                     return (
                         <li
                             className="cursor-pointer flex items-center pt-1"
-                            key={suggestion}
+                            key={suggestion.text}
                             onClick={onClick}
                         >
-                            {props.icon}
-                            {suggestion}
+                            {suggestion.icon}
+                            {suggestion.text}
                         </li>
                     );
                 })}
