@@ -1,6 +1,7 @@
 import { ButtonAutocompleteDropDown } from "./DropDown";
 import React, { useState } from "react";
 import { ReactComponent as MarkerIcon } from "../../assets/img/iconMap.svg";
+
 export default function SearchResultsHeader(props) {
     // Filters States
     const [isFilledCity, setIsFilledCity] = useState("");
