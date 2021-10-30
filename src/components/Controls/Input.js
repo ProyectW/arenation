@@ -108,7 +108,7 @@ function AutocompleteInput(props) {
                             onClick={onClick}
                         >
                             {suggestion.icon}
-                            {suggestion.text}
+                            <span className="pl-1">{suggestion.text}</span>
                         </li>
                     );
                 })}

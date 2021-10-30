@@ -26,7 +26,7 @@ module.exports = {
                 dark: ["2px solid #070928", "-2px"],
             },
             boxShadow: {
-                DropDown: "box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2)",
+                DropDown: "0px 6px 20px rgba(0, 0, 0, 0.2)",
             },
         },
     },

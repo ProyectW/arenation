@@ -64,6 +64,61 @@ function ListBox(props) {
     );
 }
 
+function ButtonListBox(props) {
+    return (
+        <>
+            <Listbox
+                value={props.selected}
+                onChange={props.setSelected}
+                as="div"
+                className={props.className}
+            >
+                <Listbox.Button
+                    className={`text-${
+                        props.selected.sport ? "primary-500" : "secondary-dark"
+                    } font-semibold outline-${
+                        props.selected.sport ? "blue" : "dark"
+                    } px-5 py-3 rounded-lg ${props.className}`}
+                >
+                    {props.selected.sport
+                        ? props.selected.sport
+                        : props.textInitialValue}
+                </Listbox.Button>
+                <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                >
+                    <Listbox.Options
+                        className={`absolute flex flex-col bg-white mt-6 ${props.className} max-h-48 leading-6 rounded-lg p-4 shadow-DropDown overflow-y-auto focus:outline-none z-10`}
+                    >
+                        {props.options.map((option) => (
+                            <Listbox.Option
+                                key={option.id}
+                                className={({ active }) =>
+                                    `${
+                                        active
+                                            ? "text-primary-500"
+                                            : "text-secondary-dark"
+                                    } cursor-pointer select-none flex items-center pt-1`
+                                }
+                                value={option}
+                            >
+                                {option.icon}
+                                <span className="pl-1">{option.sport}</span>
+                            </Listbox.Option>
+                        ))}
+                    </Listbox.Options>
+                </Transition>
+            </Listbox>
+        </>
+    );
+}
+
 function ButtonAutocompleteDropDown(props) {
     const [inputValue, setInputValue] = useState("");
     const handleButtonClick = () => {
@@ -90,7 +145,7 @@ function ButtonAutocompleteDropDown(props) {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                 >
-                    <Popover.Panel className="absolute flex flex-col bg-white mt-6 max-h-48 leading-6 rounded-lg p-4 shadow-md overflow-auto focus:outline-none z-10">
+                    <Popover.Panel className="absolute flex flex-col bg-white mt-6 max-h-48 leading-6 rounded-lg p-4 shadow-DropDown overflow-auto focus:outline-none z-10">
                         <div className="flex">
                             <AutocompleteInput
                                 type="text"
@@ -254,4 +309,4 @@ function SimpleDatePicker(props) {
     );
 }
 
-export { SimpleDatePicker, ListBox, ButtonAutocompleteDropDown };
+export { SimpleDatePicker, ListBox, ButtonAutocompleteDropDown, ButtonListBox };
