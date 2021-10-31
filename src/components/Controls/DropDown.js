@@ -262,4 +262,135 @@ function SimpleDatePicker(props) {
     );
 }
 
-export { SimpleDatePicker, ListBox, ButtonAutocompleteDropDown };
+function SimpleDate(props) {
+    const myCustomLocale = {
+        // months list by order
+        months: [
+            "Enero",
+            "Febrero",
+            "Marzo",
+            "Abril",
+            "Mayo",
+            "Junio",
+            "Julio",
+            "Agosto",
+            "Septiembre",
+            "Octubre",
+            "Noviembre",
+            "Diciembre",
+        ],
+
+        // week days by order
+        weekDays: [
+            {
+                name: "Domingo", // used for accessibility
+                short: "D", // displayed at the top of days' rows
+                isWeekend: true, // is it a formal weekend or not?
+            },
+            {
+                name: "Lunes",
+                short: "L",
+            },
+            {
+                name: "Martes",
+                short: "M",
+            },
+            {
+                name: "Miércoles",
+                short: "M",
+            },
+            {
+                name: "Jueves",
+                short: "J",
+            },
+            {
+                name: "Viernes",
+                short: "V",
+            },
+            {
+                name: "Sábado",
+                short: "S",
+                isWeekend: true,
+            },
+        ],
+
+        // just play around with this number between 0 and 6
+        weekStartingIndex: 0,
+
+        // return a { year: number, month: number, day: number } object
+        getToday(gregorainTodayObject) {
+            return gregorainTodayObject;
+        },
+
+        // return a native JavaScript date here
+        toNativeDate(date) {
+            return new Date(date.year, date.month - 1, date.day);
+        },
+
+        // return a number for date's month length
+        getMonthLength(date) {
+            return new Date(date.year, date.month, 0).getDate();
+        },
+
+        // return a transformed digit to your locale
+        transformDigit(digit) {
+            return digit;
+        },
+
+        // texts in the date picker
+        nextMonth: "Next Month",
+        previousMonth: "Previous Month",
+        openMonthSelector: "Open Month Selector",
+        openYearSelector: "Open Year Selector",
+        closeMonthSelector: "Close Month Selector",
+        closeYearSelector: "Close Year Selector",
+        defaultPlaceholder: "Select...",
+
+        // for input range value
+        from: "from",
+        to: "to",
+
+        // used for input value when multi dates are selected
+        digitSeparator: ",",
+
+        // if your provide -2 for example, year will be 2 digited
+        yearLetterSkip: 0,
+
+        // is your language rtl or ltr?
+        isRtl: false,
+    };
+    const Input = ({ ref }) => (
+        <input
+            readOnly
+            ref={ref}
+            value={
+                props.date
+                    ? `${myCustomLocale.months[props.date.month - 1]} ${
+                          props.date.day
+                      } de ${props.date.year}`
+                    : ""
+            }
+            placeholder={props.placeholder}
+            className={`py-1 placeholder-secondary-gray focus:outline-none z-0 bg-secondary-light`}
+        />
+    );
+
+    return (
+        <div
+            className={`mt-2 flex flex-col p-2 ${props.className} text-secondary-dark bg-secondary-light rounded-lg w-full`}
+        >
+            <label className="font-semibold text-secondary-dark text-sm bg-secondary-light">
+                {props.label}
+            </label>
+            <DatePicker
+                value={props.date}
+                onChange={props.setDate}
+                renderInput={Input}
+                colorPrimary="#1045FF"
+                locale={myCustomLocale}
+            />
+        </div>
+    );
+}
+
+export { SimpleDate, SimpleDatePicker, ListBox, ButtonAutocompleteDropDown };

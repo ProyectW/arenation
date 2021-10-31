@@ -18,6 +18,7 @@ function Input(props) {
                         {props.label}
                     </label>
                     <input
+                        id={props.id}
                         type={isHidden ? "password" : "text"}
                         placeholder={props.placeholder}
                         className={`py-1 bg-${props.color} placeholder-secondary-gray focus:outline-none`}
@@ -47,6 +48,7 @@ function Input(props) {
                         placeholder={props.placeholder}
                         className={`py-1 bg-${props.color} placeholder-secondary-gray focus:outline-none`}
                         onChange={props.handleInputChange}
+                        required
                     />
                 </div>
             </div>
@@ -64,6 +66,7 @@ function Input(props) {
                     placeholder={props.placeholder}
                     className={`py-1 bg-${props.color}  placeholder-secondary-gray focus:outline-none text-base text-secondary-dark`}
                     onChange={props.handleInputChange}
+                    required={props.required}
                 />
             </div>
         );

@@ -11,7 +11,7 @@ export default function LayoutAway(props) {
                 isAway={false}
                 openManager={false}
             />
-            {props.children}
+            <main>{props.children}</main>
             <Footer footer="UnLocal" />
         </>
     );

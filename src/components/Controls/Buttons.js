@@ -5,6 +5,7 @@ export default function Button(props) {
         return (
             <Link to={props.link}>
                 <button
+                    id={props.id}
                     className={`bg-primary-500 text-white font-semibold px-5 py-3 rounded-lg ${props.className}`}
                     onClick={props.handleClick}
                 >
@@ -30,7 +31,7 @@ export default function Button(props) {
                     className={`flex items-center justify-center text-primary-500 font-semibold outline-${props.color} px-5 py-3 rounded-lg ${props.className}`}
                     onClick={props.handleClick}
                 >
-                    {props.children}
+                    <img className="mr-1" alt="" src={props.children}/>
                     {props.text}
                 </button>
             </Link>
