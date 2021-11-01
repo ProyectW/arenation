@@ -1,7 +1,8 @@
 import { Listbox, Transition, Popover } from "@headlessui/react";
 import { ReactComponent as UpDownIcon } from "../../assets/img/iconUpDown.svg";
 import { Fragment, useState } from "react";
-import { AutocompleteInput } from "./Input";
+import { AutocompleteInput, Input } from "./Input";
+import { MultiRangeSlider } from "./Slider";
 import { ReactComponent as CheckIcon } from "../../assets/img/iconCheck.svg";
 /*DatePicker Imports*/
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
@@ -71,17 +72,16 @@ function ButtonListBox(props) {
                 value={props.selected}
                 onChange={props.setSelected}
                 as="div"
-                className={props.className}
             >
                 <Listbox.Button
                     className={`text-${
-                        props.selected.sport ? "primary-500" : "secondary-dark"
+                        props.selected.name ? "primary-500" : "secondary-dark"
                     } font-semibold outline-${
-                        props.selected.sport ? "blue" : "dark"
+                        props.selected.name ? "blue" : "dark"
                     } px-5 py-3 rounded-lg ${props.className}`}
                 >
-                    {props.selected.sport
-                        ? props.selected.sport
+                    {props.selected.name
+                        ? props.selected.name
                         : props.textInitialValue}
                 </Listbox.Button>
                 <Transition
@@ -109,12 +109,157 @@ function ButtonListBox(props) {
                                 value={option}
                             >
                                 {option.icon}
-                                <span className="pl-1">{option.sport}</span>
+                                <span className="pl-1">{option.name}</span>
                             </Listbox.Option>
                         ))}
                     </Listbox.Options>
                 </Transition>
             </Listbox>
+        </>
+    );
+}
+
+function ButtonCheckboxGroup(props) {
+    return (
+        <>
+            <Popover as="div">
+                <Popover.Button
+                    className={`flex items-center justify-center text-${
+                        props.checkedItems.filter((item) => item.isChecked)
+                            .length > 0
+                            ? "primary-500"
+                            : "secondary-dark"
+                    } font-semibold outline-${
+                        props.checkedItems.filter((item) => item.isChecked)
+                            .length > 0
+                            ? "blue"
+                            : "dark"
+                    } px-5 py-3 rounded-lg ${props.className}`}
+                >
+                    {`${props.text}`}
+                    {props.checkedItems.filter((item) => item.isChecked)
+                        .length > 0 ? (
+                        <div className="bg-primary-500 text-white font-semibold px-2 ml-1 rounded-full">
+                            {
+                                props.checkedItems.filter(
+                                    (item) => item.isChecked
+                                ).length
+                            }
+                        </div>
+                    ) : (
+                        ""
+                    )}
+                </Popover.Button>
+                <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                >
+                    <Popover.Panel className="absolute flex flex-col bg-white ml-2 mt-6 max-h-48 leading-6 rounded-lg p-4 shadow-DropDown overflow-auto focus:outline-none z-10">
+                        <ul className="flex flex-col">
+                            {props.checkedItems.map((item) => (
+                                <li key={item.id}>
+                                    <div className="flex items-center">
+                                        <input
+                                            type="checkbox"
+                                            id={item.id}
+                                            name={item.name}
+                                            value={item.name}
+                                            checked={item.isChecked}
+                                            onChange={props.onClickCheck}
+                                            className="cursor-pointer"
+                                        />
+                                        <label
+                                            htmlFor={item.name}
+                                            className="pl-2 cursor-pointer"
+                                        >
+                                            {item.name}
+                                        </label>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </Popover.Panel>
+                </Transition>
+            </Popover>
+        </>
+    );
+}
+
+function ButtonRangeSlider(props) {
+    const [isRangeSelected, setRangeSelected] = useState(false);
+    const handleChange = (e, value) => {
+        props.onChange(e, value);
+        setRangeSelected(true);
+    };
+    return (
+        <>
+            <Popover as="div">
+                <Popover.Button
+                    className={`text-${
+                        isRangeSelected ? "primary-500" : "secondary-dark"
+                    } font-semibold outline-${
+                        isRangeSelected ? "blue" : "dark"
+                    } px-5 py-3 rounded-lg ${props.className}`}
+                >
+                    {isRangeSelected
+                        ? `$${Intl.NumberFormat("en-US").format(
+                              props.value[0]
+                          )} - $${Intl.NumberFormat("en-US").format(
+                              props.value[1]
+                          )}`
+                        : props.textInitialValue}
+                </Popover.Button>
+                <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                >
+                    <Popover.Panel className="absolute flex flex-col bg-white mt-6 ml-2 leading-6 rounded-lg p-4 shadow-DropDown focus:outline-none z-10">
+                        <div className="flex flex-col">
+                            <MultiRangeSlider
+                                min={props.min}
+                                max={props.max}
+                                value={props.value}
+                                onChange={handleChange}
+                                ariaLabel={props.ariaLabel}
+                            />
+                            <div className="flex flex-col">
+                                <Input
+                                    type="text"
+                                    color="secondary-light"
+                                    label={props.inputLabelMin}
+                                    value={`$${Intl.NumberFormat(
+                                        "en-US"
+                                    ).format(props.value[0])}`}
+                                    className="w-full mb-2"
+                                    readOnly={true}
+                                    onChange={() => setRangeSelected(true)}
+                                />
+                                <Input
+                                    type="text"
+                                    color="secondary-light"
+                                    label={props.inputLabelMax}
+                                    value={`$${Intl.NumberFormat(
+                                        "en-US"
+                                    ).format(props.value[1])}`}
+                                    className="w-full"
+                                    readOnly={true}
+                                    onChange={() => setRangeSelected(true)}
+                                />
+                            </div>
+                        </div>
+                    </Popover.Panel>
+                </Transition>
+            </Popover>
         </>
     );
 }
@@ -309,4 +454,11 @@ function SimpleDatePicker(props) {
     );
 }
 
-export { SimpleDatePicker, ListBox, ButtonAutocompleteDropDown, ButtonListBox };
+export {
+    SimpleDatePicker,
+    ListBox,
+    ButtonAutocompleteDropDown,
+    ButtonListBox,
+    ButtonRangeSlider,
+    ButtonCheckboxGroup,
+};

@@ -54,16 +54,18 @@ function Input(props) {
     } else {
         return (
             <div
-                className={`flex flex-col p-2 bg-${props.color} text-secondary-dark rounded-lg`}
+                className={`flex flex-col p-2 bg-${props.color} text-secondary-dark rounded-lg ${props.className}`}
             >
                 <label className="font-semibold text-secondary-dark text-sm">
                     {props.label}
                 </label>
                 <input
+                    value={props.value ? props.value : ""}
                     type={props.type}
                     placeholder={props.placeholder}
                     className={`py-1 bg-${props.color}  placeholder-secondary-gray focus:outline-none text-base text-secondary-dark`}
                     onChange={props.handleInputChange}
+                    readOnly={props.readOnly}
                 />
             </div>
         );

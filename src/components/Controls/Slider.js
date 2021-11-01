@@ -1,39 +1,34 @@
-import { useState, useRef } from "react";
+import Slider from "@mui/material/Slider";
+import { styled } from "@mui/material/styles";
+
 function MultiRangeSlider(props) {
-    const [minVal, setMinVal] = useState(props.min);
-    const [maxVal, setMaxVal] = useState(props.max);
-    const minValRef = useRef(null);
-    const maxValRef = useRef(null);
-
-    const handleChange = (e) => {
-        const value = Math.min(+e.target.value, maxVal - 1);
-        setMinVal(value);
-        e.target.value = value.toString();
-    };
-
     return (
-        <>
-            <input
-                type="range"
-                min={props.minValue}
-                max={props.maxValue}
-                value={minVal}
-                ref={minValRef}
-                onChange={handleChange}
-                className="pointer-events-none absolute h-0 w-52 outline-none z-0"
+        <div>
+            <CustomSlider
+                value={props.value}
+                onChange={props.onChange}
+                min={props.min}
+                max={props.max}
+                defaultValue={[props.min, props.max]}
             />
-            <input
-                type="range"
-                min={props.minValue}
-                max={props.maxValue}
-                className="pointer-events-none absolute h-0 w-52 outline-none z-10"
-            />
-            <div className="relative w-52">
-                <div className="rounded h-2 absolute bg-primary-500 w-full z-0"></div>
-                <div className="rounded h-2 absolute bg-primary-100 z-10"></div>
-            </div>
-        </>
+        </div>
     );
 }
 
+const CustomSlider = styled(Slider)({
+    color: "#1045FF",
+    height: 8,
+    "& .MuiSlider-rail": {
+        opacity: 1,
+        backgroundColor: "#F8F8FA",
+    },
+    "& .MuiSlider-thumb": {
+        height: 16,
+        width: 16,
+        boxShadow: "0px 0px 0px 0px",
+        "&:focus, &:hover, &.Mui-active, &.Mui-focusVisible": {
+            boxShadow: "0px 0px 0px 0px",
+        },
+    },
+});
 export { MultiRangeSlider };
