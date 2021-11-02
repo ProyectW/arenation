@@ -4,7 +4,7 @@ import {
     ButtonRangeSlider,
     ButtonCheckboxGroup,
 } from "./DropDown";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ReactComponent as MarkerIcon } from "../../assets/img/iconMap.svg";
 
 export default function SearchResultsHeader(props) {
@@ -55,32 +55,26 @@ export default function SearchResultsHeader(props) {
         {
             id: 1,
             name: "Baños",
-            isChecked: true,
         },
         {
             id: 2,
             name: "Vestuarios",
-            isChecked: false,
         },
         {
             id: 3,
             name: "Duchas",
-            isChecked: false,
         },
         {
             id: 4,
             name: "Bar",
-            isChecked: true,
         },
         {
             id: 5,
             name: "Bar",
-            isChecked: false,
         },
         {
             id: 6,
             name: "Restarante",
-            isChecked: false,
         },
     ];
 
@@ -96,31 +90,20 @@ export default function SearchResultsHeader(props) {
     // Arena's Surface
     const [selectedSurface, setSelectedSurface] = useState("");
     // Facilities State
-    const [checkedFacilities, setCheckedFacilities] = useState(facilitiesData);
+    const [checkedFacilities, setCheckedFacilities] = useState(
+        facilitiesData.map((facility) => {
+            return {
+                id: facility.id,
+                name: facility.name,
+                isChecked: false,
+            };
+        })
+    );
     // Handlers
     const handlePriceRangeChange = (event, newValue) => {
         setRangePrice(newValue);
     };
-    const handleCheckFacilities = (e) => {
-        const updatedChecked = checkedFacilities;
-        updatedChecked.forEach((facility) => {
-            if ("" + facility.id === e.target.id) {
-                facility.isChecked = !e.target.checked;
-                console.log(
-                    facility.name +
-                        "-" +
-                        facility.isChecked +
-                        "/" +
-                        e.target.id +
-                        "-" +
-                        e.target.checked
-                );
-            }
-        });
 
-        setCheckedFacilities(updatedChecked);
-        console.log(updatedChecked);
-    };
     return (
         <>
             <div className="px-8 py-8 sm:px-16 flex flex-col w-full">
@@ -166,7 +149,7 @@ export default function SearchResultsHeader(props) {
                     />
                     <ButtonCheckboxGroup
                         checkedItems={checkedFacilities}
-                        onClickCheck={handleCheckFacilities}
+                        setCheckedItems={setCheckedFacilities}
                         className="ml-2"
                         text="Servicios"
                     />

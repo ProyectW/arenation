@@ -31,7 +31,11 @@ module.exports = {
         },
     },
     variants: {
-        extend: {},
+        extend: {
+            backgroundColor: ["checked"],
+            borderColor: ["checked"],
+            fill: ["checked"],
+        },
     },
     plugins: [],
 };

@@ -120,6 +120,16 @@ function ButtonListBox(props) {
 }
 
 function ButtonCheckboxGroup(props) {
+    const handleOnChange = (e, item) => {
+        props.setCheckedItems(
+            props.checkedItems.map((chkItem) => {
+                if (item.id === chkItem.id) {
+                    chkItem.isChecked = e.target.checked;
+                }
+                return chkItem;
+            })
+        );
+    };
     return (
         <>
             <Popover as="div">
@@ -162,19 +172,24 @@ function ButtonCheckboxGroup(props) {
                     <Popover.Panel className="absolute flex flex-col bg-white ml-2 mt-6 max-h-48 leading-6 rounded-lg p-4 shadow-DropDown overflow-auto focus:outline-none z-10">
                         <ul className="flex flex-col">
                             {props.checkedItems.map((item) => (
-                                <li key={item.id}>
+                                <li key={item.id} className="mb-2">
                                     <div className="flex items-center">
-                                        <input
-                                            type="checkbox"
-                                            id={item.id}
-                                            name={item.name}
-                                            value={item.name}
-                                            checked={item.isChecked}
-                                            onChange={props.onClickCheck}
-                                            className="cursor-pointer"
-                                        />
+                                        <div>
+                                            <input
+                                                type="checkbox"
+                                                id={item.id}
+                                                name={item.name}
+                                                value={item.name}
+                                                checked={item.isChecked}
+                                                onChange={(e) =>
+                                                    handleOnChange(e, item)
+                                                }
+                                                className="cursor-pointer form-tick appearance-none h-6 w-6 border-2 border-secondary-dark rounded-md checked:fill-current checked:bg-primary-500 checked:border-primary-500 focus:outline-none"
+                                            />
+                                        </div>
+
                                         <label
-                                            htmlFor={item.name}
+                                            htmlFor={item.id}
                                             className="pl-2 cursor-pointer"
                                         >
                                             {item.name}

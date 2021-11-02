@@ -21,7 +21,8 @@ p,
 span,
 li,
 a,
-label, input {
+label,
+input {
     @apply font-noto;
 }
 
