@@ -5,6 +5,8 @@ import {
     ButtonCheckboxGroup,
 } from "./DropDown";
 import React, { useState, useEffect } from "react";
+import Button from "../Controls/Buttons";
+import FilterOverlay from "../Overlays/FilterOverlay";
 import { ReactComponent as MarkerIcon } from "../../assets/img/iconMap.svg";
 
 export default function SearchResultsHeader(props) {
@@ -99,6 +101,8 @@ export default function SearchResultsHeader(props) {
             };
         })
     );
+    const [isFilterOverlayOpen, setIsFilterOverlayOpen] = useState(false);
+
     // Handlers
     const handlePriceRangeChange = (event, newValue) => {
         setRangePrice(newValue);
@@ -113,7 +117,7 @@ export default function SearchResultsHeader(props) {
                         props.filter.sport ? "de " + props.filter.sport : ""
                     } ${props.filter.city ? "En " + props.filter.city : ""}`}
                 </h1>
-                <div className="flex pt-4">
+                <div className="hidden md:flex pt-4">
                     <ButtonAutocompleteDropDown
                         value={isFilledCity}
                         setValue={setIsFilledCity}
@@ -152,6 +156,31 @@ export default function SearchResultsHeader(props) {
                         setCheckedItems={setCheckedFacilities}
                         className="ml-2"
                         text="Servicios"
+                    />
+                </div>
+                <div className="flex md:hidden pt-4">
+                    <Button
+                        link="/Arenas"
+                        type="outline"
+                        color="dark"
+                        textColor="secondary-dark"
+                        text="Filtros"
+                        handleClick={() => setIsFilterOverlayOpen(true)}
+                    />
+                    <FilterOverlay
+                        state={{
+                            city: [
+                                isFilledCity,
+                                setIsFilledCity,
+                                citySuggestions,
+                            ],
+                            sport: [selectedSport, setSelectedSport],
+                            price: [rangePrice, setRangePrice],
+                            surface: [selectedSurface, selectedSurface],
+                            facility: [checkedFacilities, setCheckedFacilities],
+                        }}
+                        isOpen={isFilterOverlayOpen}
+                        setIsOpen={setIsFilterOverlayOpen}
                     />
                 </div>
             </div>
