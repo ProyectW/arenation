@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import {React, useState, useEffect} from "react";
 import { ReactComponent as CloseIcon} from "../../../assets/img/closeIcon.svg";
 import { ReactComponent as CheckIcon} from "../../../assets/img/iconCheck.svg";
 import { ReactComponent as BackIcon} from "../../../assets/img/iconBack.svg";
@@ -18,18 +18,19 @@ export default function CardLogin(props) {
     const [btnHide, setBtnHide] = useState(true);
     const [date, setDate] = useState("");
     const [check, setCheck] = useState(false);
-    
-    try{
-        document.getElementById('register').addEventListener('click', ()=>{
-            setHide(false);
-        });
-        document.getElementById('divClick').addEventListener('click', ()=>{
-            setHide(true);
-            setBtnHide(true);
-        });
-    }catch(e){
-        console.log("error: ", e);
-    };
+    const [checkT, setCheckT] = useState(false);
+
+    useEffect(() => {
+        try{
+            document.getElementById('register').addEventListener('click', ()=>{
+                setHide(false);
+            });
+            document.getElementById('divClick').addEventListener('click', ()=>{
+                setHide(true);
+                setBtnHide(true);
+            });
+        }catch(e){return e}
+    });
 
     return(
         <>{hide ? (<></>):(<>{btnHide ? (<>
@@ -41,12 +42,20 @@ export default function CardLogin(props) {
                     <h4 className="w-full text-center text-secondary-dark font-semibold">Registrarte</h4>
                 </div>
                 <div className="p-1 mt-2">
-                    <form>
+                    <form id="formLogin">
                         <label className="w-full text-secondary-dark font-semibold">Bienvenido a Arenation</label>
                         <div className="mt-3 p-1 flex flex-col w-full bg-secondary-light rounded-lg">
-                            <Input type="mail" label="Correo electronico" placeholder="Correo electronico" color="secondary-light"/>
+                            <Input id="idCorreo" type="email" label="Correo electronico" placeholder="Correo electronico" color="secondary-light" required={true}/>
                         </div>
-                        <Button link="" handleClick={()=> setBtnHide(false)} className="mt-3 w-full" type="normal" text="Continuar"/>
+                        <Button link="" handleClick={()=> {
+                            const text = document.getElementById('idCorreo')
+                            
+                            if(text.value === ""){
+                                text.placeholder = "¡Requerido!"
+                            }else{
+                                return setBtnHide(false)
+                            }
+                        }} className="mt-3 w-full" type="normal" text="Continuar"/>
                     </form>
                     <div className="flex items-center text-sm my-2">
                         <hr className="border-1 w-full my-2 border-secondary-gray"/>
@@ -64,13 +73,39 @@ export default function CardLogin(props) {
             <div className="w-full h-full z-30 bg-secondary-dark opacity-70"></div>
             <div className="p-2 w-1/3 h-max bg-white rounded-lg z-30 fixed">
                 <div className="p-1 flex items-center border-b border-secondary-gray">
-                    <button onClick={()=>{setBtnHide(true) 
-                        console.log(document.getElementById('pass').value)}}><BackIcon/></button>
+                    <button onClick={()=>{
+                        document.getElementById('formRegister').reset();
+                        setBtnHide(true)}
+                    }><BackIcon/></button>
                     <h4 className="w-full text-center text-secondary-dark font-semibold">Registrarte</h4>
                 </div>
                 <div className="p-1 mt-2">
-                    <form>
+                    <form id="formRegister">
                         <label className="w-full text-secondary-dark font-semibold">Bienvenido a Arenation</label>
+                        <div className="mt-3 p-1 flex flex-col w-full bg-secondary-light rounded-lg">
+                            <Input type="mail" label="Correo electronico" placeholder="Correo electronico" color="secondary-light"/>
+                        </div>
+                        <div className="mt-3 p-1 flex flex-col w-full bg-secondary-light rounded-lg">
+                            <Input id="pass" 
+                                   type="password" 
+                                   label="Contraseña" 
+                                   placeholder="Contraseña" 
+                                   color="secondary-light"
+                                   handleInputChange={(e)=>{
+                                      const value =  e.target.value;
+                                      if (value.length > 8) {
+                                          setCheck(true)
+                                          if(/[^A-Za-z\d]/.test(value) && value.match(/\d+/) != null){
+                                            setCheckT(true)
+                                          }else{
+                                            setCheckT(false)
+                                          }
+                                      }else{
+                                          setCheck(false)
+                                          setCheckT(false)
+                                      }
+                                   }}/>
+                        </div>
                         <div className="mt-3 p-1 flex flex-col w-full bg-secondary-light rounded-lg">
                             <Input type="text" label="Nombres" placeholder="Nombres" color="secondary-light"/>
                         </div>
@@ -84,31 +119,13 @@ export default function CardLogin(props) {
                             date={date}
                             setDate={setDate}
                         ></SimpleDate>
-                        <div className="mt-3 p-1 flex flex-col w-full bg-secondary-light rounded-lg">
-                            <Input type="mail" label="Correo electronico" placeholder="Correo electronico" color="secondary-light"/>
-                        </div>
-                        <div className="mt-3 p-1 flex flex-col w-full bg-secondary-light rounded-lg">
-                            <Input id="pass" 
-                                   type="password" 
-                                   label="Contraseña" 
-                                   placeholder="Contraseña" 
-                                   color="secondary-light"
-                                   handleInputChange={(e)=>{
-                                      const value =  e.target.value;
-                                      if (value.length > 8 && value.match(/\d+/) != null) {
-                                          setCheck(true)
-                                      }else{
-                                          setCheck(false)
-                                      }
-                                   }}/>
-                        </div>
                         <i className="flex items-center">
                             {check ? <CheckIcon/>:<CloseIcon/> }
                             <label className="text-secondary-dark text-xs">
                                 Más de 8 dígitos
                             </label>
                         </i>
-                        <i className="flex items-center"><CloseIcon/><label className="text-secondary-dark text-xs">Contiene por lo menos un número y un simbolo</label></i>
+                        <i className="flex items-center">{checkT ? <CheckIcon/>:<CloseIcon/> }<label className="text-secondary-dark text-xs">Contiene por lo menos un número y un simbolo</label></i>
                         <Button className="mt-3 w-full" type="normal" text="Continuar"/>
                     </form>
                 </div>
