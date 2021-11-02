@@ -62,7 +62,7 @@ function Input(props) {
                     {props.label}
                 </label>
                 <input
-                    value={props.value ? props.value : ""}
+                    id={props.id}
                     type={props.type}
                     placeholder={props.placeholder}
                     className={`py-1 bg-${props.color}  placeholder-secondary-gray focus:outline-none text-base text-secondary-dark`}

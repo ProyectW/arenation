@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { ReactComponent as CloseIcon } from "../../../assets/img/closeIcon.svg";
 import { ReactComponent as CheckIcon } from "../../../assets/img/iconCheck.svg";
 import { ReactComponent as BackIcon } from "../../../assets/img/iconBack.svg";
@@ -13,18 +13,25 @@ export default function CardSignUp(props) {
     const [btnHide, setBtnHide] = useState(true);
     const [date, setDate] = useState("");
     const [check, setCheck] = useState(false);
+    const [checkT, setCheckT] = useState(false);
 
-    try {
-        document.getElementById("register").addEventListener("click", () => {
-            setHide(false);
-        });
-        document.getElementById("divClick").addEventListener("click", () => {
-            setHide(true);
-            setBtnHide(true);
-        });
-    } catch (e) {
-        console.log("error: ", e);
-    }
+    useEffect(() => {
+        try {
+            document
+                .getElementById("register")
+                .addEventListener("click", () => {
+                    setHide(false);
+                });
+            document
+                .getElementById("divClick")
+                .addEventListener("click", () => {
+                    setHide(true);
+                    setBtnHide(true);
+                });
+        } catch (e) {
+            return e;
+        }
+    });
 
     return (
         <>
@@ -34,12 +41,12 @@ export default function CardSignUp(props) {
                 <>
                     {btnHide ? (
                         <>
-                            <div className="flex justify-center items-center w-full h-full z-40 fixed">
+                            <div className="flex justify-center items-center w-full h-full z-10 fixed">
                                 <div
                                     id="divClick"
                                     className="w-full h-full z-30 bg-secondary-dark opacity-70"
                                 ></div>
-                                <div className="p-2  w-full h-max bg-white rounded-lg z-30 fixed">
+                                <div className="p-2 w-1/4 h-max bg-white rounded-lg z-30 fixed">
                                     <div className="p-1 flex items-center border-b border-secondary-gray">
                                         <button
                                             onClick={() => {
@@ -53,23 +60,37 @@ export default function CardSignUp(props) {
                                         </h4>
                                     </div>
                                     <div className="p-1 mt-2">
-                                        <form>
+                                        <form id="formLogin">
                                             <label className="w-full text-secondary-dark font-semibold">
                                                 Bienvenido a Arenation
                                             </label>
                                             <div className="mt-3 p-1 flex flex-col w-full bg-secondary-light rounded-lg">
                                                 <Input
-                                                    type="mail"
+                                                    id="idCorreo"
+                                                    type="email"
                                                     label="Correo electronico"
                                                     placeholder="Correo electronico"
                                                     color="secondary-light"
+                                                    required={true}
                                                 />
                                             </div>
                                             <Button
                                                 link=""
-                                                handleClick={() =>
-                                                    setBtnHide(false)
-                                                }
+                                                handleClick={() => {
+                                                    const text =
+                                                        document.getElementById(
+                                                            "idCorreo"
+                                                        );
+
+                                                    if (text.value === "") {
+                                                        text.placeholder =
+                                                            "¡Requerido!";
+                                                    } else {
+                                                        return setBtnHide(
+                                                            false
+                                                        );
+                                                    }
+                                                }}
                                                 className="mt-3 w-full"
                                                 type="normal"
                                                 text="Continuar"
@@ -108,12 +129,12 @@ export default function CardSignUp(props) {
                                     <div className="p-1 flex items-center border-b border-secondary-gray">
                                         <button
                                             onClick={() => {
+                                                document
+                                                    .getElementById(
+                                                        "formRegister"
+                                                    )
+                                                    .reset();
                                                 setBtnHide(true);
-                                                console.log(
-                                                    document.getElementById(
-                                                        "pass"
-                                                    ).value
-                                                );
                                             }}
                                         >
                                             <BackIcon />
@@ -123,10 +144,51 @@ export default function CardSignUp(props) {
                                         </h4>
                                     </div>
                                     <div className="p-1 mt-2">
-                                        <form>
+                                        <form id="formRegister">
                                             <label className="w-full text-secondary-dark font-semibold">
                                                 Bienvenido a Arenation
                                             </label>
+                                            <div className="mt-3 p-1 flex flex-col w-full bg-secondary-light rounded-lg">
+                                                <Input
+                                                    type="mail"
+                                                    label="Correo electronico"
+                                                    placeholder="Correo electronico"
+                                                    color="secondary-light"
+                                                />
+                                            </div>
+                                            <div className="mt-3 p-1 flex flex-col w-full bg-secondary-light rounded-lg">
+                                                <Input
+                                                    id="pass"
+                                                    type="password"
+                                                    label="Contraseña"
+                                                    placeholder="Contraseña"
+                                                    color="secondary-light"
+                                                    handleInputChange={(e) => {
+                                                        const value =
+                                                            e.target.value;
+                                                        if (value.length > 8) {
+                                                            setCheck(true);
+                                                            if (
+                                                                /[^A-Za-z\d]/.test(
+                                                                    value
+                                                                ) &&
+                                                                value.match(
+                                                                    /\d+/
+                                                                ) != null
+                                                            ) {
+                                                                setCheckT(true);
+                                                            } else {
+                                                                setCheckT(
+                                                                    false
+                                                                );
+                                                            }
+                                                        } else {
+                                                            setCheck(false);
+                                                            setCheckT(false);
+                                                        }
+                                                    }}
+                                                />
+                                            </div>
                                             <div className="mt-3 p-1 flex flex-col w-full bg-secondary-light rounded-lg">
                                                 <Input
                                                     type="text"
@@ -149,38 +211,7 @@ export default function CardSignUp(props) {
                                                 color="secondary-light secondary-light w-full"
                                                 date={date}
                                                 setDate={setDate}
-                                            />
-                                            <div className="mt-3 p-1 flex flex-col w-full bg-secondary-light rounded-lg">
-                                                <Input
-                                                    type="mail"
-                                                    label="Correo electronico"
-                                                    placeholder="Correo electronico"
-                                                    color="secondary-light"
-                                                />
-                                            </div>
-                                            <div className="mt-3 p-1 flex flex-col w-full bg-secondary-light rounded-lg">
-                                                <Input
-                                                    id="pass"
-                                                    type="password"
-                                                    label="Contraseña"
-                                                    placeholder="Contraseña"
-                                                    color="secondary-light"
-                                                    handleInputChange={(e) => {
-                                                        const value =
-                                                            e.target.value;
-                                                        if (
-                                                            value.length > 8 &&
-                                                            value.match(
-                                                                /\d+/
-                                                            ) != null
-                                                        ) {
-                                                            setCheck(true);
-                                                        } else {
-                                                            setCheck(false);
-                                                        }
-                                                    }}
-                                                />
-                                            </div>
+                                            ></SimpleDate>
                                             <i className="flex items-center">
                                                 {check ? (
                                                     <CheckIcon />
@@ -192,7 +223,11 @@ export default function CardSignUp(props) {
                                                 </label>
                                             </i>
                                             <i className="flex items-center">
-                                                <CloseIcon />
+                                                {checkT ? (
+                                                    <CheckIcon />
+                                                ) : (
+                                                    <CloseIcon />
+                                                )}
                                                 <label className="text-secondary-dark text-xs">
                                                     Contiene por lo menos un
                                                     número y un simbolo

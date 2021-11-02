@@ -46,7 +46,7 @@ export default function UnLoggedNavBar() {
                         handleClick={handleClick}
                         text="Registrate"
                         className="mr-2"
-                        link="/"
+                        link=""
                     />
                     <Button
                         type="outline"
@@ -57,7 +57,10 @@ export default function UnLoggedNavBar() {
                         textColor="primary-500"
                         link="/"
                     />
-                    <Menu as="div" className="flex justify-center items-center">
+                    <Menu
+                        as="div"
+                        className="z-20 flex justify-center items-center"
+                    >
                         <Menu.Button>
                             <Avatar isLogged={false} />
                         </Menu.Button>
@@ -70,24 +73,17 @@ export default function UnLoggedNavBar() {
                             leaveFrom="transform opacity-100 scale-100"
                             leaveTo="transform opacity-0 scale-95"
                         >
-                            <Menu.Items className=" flex flex-col divide-y-2 divide-secondary-gray divide-opacity-20 origin-top-right absolute right-16 top-20 rounded-md shadow-md pl-3 py-4 pr-4 bg-white focus:outline-none">
-                                <div className="flex flex-col">
-                                    <label
-                                        id="btnRegister"
-                                        className="pb-1 cursor-pointer"
-                                    >
-                                        Registrarse
-                                    </label>
-                                    <p
-                                        id="btnIniciar"
-                                        className="pb-1 cursor-pointer"
-                                    >
-                                        Iniciar sesi&oacute;n
-                                    </p>
-                                </div>
-                                <div className="flex flex-col">
-                                    <p className="">Ser local</p>
-                                </div>
+                            <Menu.Items className="flex flex-col divide-y-2 divide-secondary-gray divide-opacity-20 origin-top-right absolute right-16 top-20 rounded-md shadow-md pl-3 py-4 pr-4 bg-white focus:outline-none">
+                                <p id="btnR" className="pb-1">
+                                    Registrarse
+                                </p>
+                                <p
+                                    id="btnIniciar"
+                                    className="pb-1 cursor-pointer"
+                                >
+                                    Iniciar sesi&oacute;n
+                                </p>
+                                <p className="">Ser local</p>
                             </Menu.Items>
                         </Transition>
                     </Menu>
@@ -147,5 +143,5 @@ export default function UnLoggedNavBar() {
 }
 
 function handleClick(e) {
-    console.log("Click!!");
+    return e;
 }
