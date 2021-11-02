@@ -6,7 +6,7 @@ export default function Button(props) {
             <Link to={props.link}>
                 <button
                     id={props.id}
-                    className={`bg-primary-500 text-white font-semibold px-5 py-3 rounded-lg ${props.className}`}
+                    className={`bg-primary-500 text-white font-semibold px-5 py-4 rounded-lg ${props.className}`}
                     onClick={props.handleClick}
                 >
                     {props.text}
@@ -17,7 +17,7 @@ export default function Button(props) {
         return (
             <Link to={props.link}>
                 <button
-                    className={`text-${props.textColor} font-semibold outline-${props.color} px-5 py-3 rounded-lg ${props.className}`}
+                    className={`text-${props.textColor} font-semibold outline-${props.color} px-5 py-4 rounded-lg ${props.className}`}
                     onClick={props.handleClick}
                 >
                     {props.text}
@@ -28,10 +28,14 @@ export default function Button(props) {
         return (
             <Link to={props.link}>
                 <button
-                    className={`flex items-center justify-center text-primary-500 font-semibold outline-${props.color} px-5 py-3 rounded-lg ${props.className}`}
+                    className={`flex items-center justify-center text-${props.textColor} font-semibold outline-${props.color} px-5 py-4 rounded-lg ${props.className}`}
                     onClick={props.handleClick}
                 >
-                    <img className="mr-1" alt="" src={props.children}/>
+                    <img
+                        className={`w-6 h-6 ${props.text ? "mr-2" : ""}`}
+                        alt={props.alt}
+                        src={props.children}
+                    />
                     {props.text}
                 </button>
             </Link>
@@ -40,7 +44,7 @@ export default function Button(props) {
         return (
             <Link to={props.link}>
                 <button
-                    className={`flex items-center justify-center text-primary-500 font-semibold outline-${props.color} px-5 py-3 rounded-lg ${props.className}`}
+                    className={`flex items-center justify-center text-primary-500 font-semibold outline-${props.color} px-5 py-4 rounded-lg ${props.className}`}
                     onClick={props.handleClick}
                 >
                     {props.text}

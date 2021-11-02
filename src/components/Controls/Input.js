@@ -11,7 +11,7 @@ function Input(props) {
         return (
             <div
                 color="white w-full"
-                className={`flex p-2 bg-${props.color} text-secondary-dark rounded-lg items-center`}
+                className={`flex p-2 bg-${props.color} text-secondary-dark rounded-lg items-center ${props.className}`}
             >
                 <div className="flex flex-col w-full">
                     <label className="font-semibold text-secondary-dark text-sm">
