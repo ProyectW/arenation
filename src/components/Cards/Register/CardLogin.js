@@ -95,6 +95,8 @@ function CardLogin(props) {
 export default function CardLoginP(props) {
     const cancelButtonRef = useRef(null);
     const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
     return (
         <Transition.Root show={props.isOpen} as={Fragment}>
             <Dialog
@@ -149,7 +151,9 @@ export default function CardLoginP(props) {
                                         placeholder="Correo electrónico"
                                         color="secondary-light"
                                         className="w-full mt-4"
-                                        onChange={(e) => e.target.value}
+                                        onChange={(e) =>
+                                            setEmail(e.target.value)
+                                        }
                                         required
                                     />
                                     <Input
@@ -158,7 +162,9 @@ export default function CardLoginP(props) {
                                         placeholder="Contraseña"
                                         color="secondary-light"
                                         className="w-full mt-4"
-                                        onChange={(e) => e.target.value}
+                                        onChange={(e) =>
+                                            setPassword(e.target.value)
+                                        }
                                         required
                                     />
                                     <Button
@@ -184,7 +190,7 @@ export default function CardLoginP(props) {
                                 <Button
                                     type="iconBtn"
                                     link="/"
-                                    text="Continuar"
+                                    text="Iniciar con Facebook"
                                     color="dark"
                                     className="w-full mt-4"
                                     handleClick={() => props.setIsOpen(false)}
@@ -193,7 +199,7 @@ export default function CardLoginP(props) {
                                 <Button
                                     type="iconBtn"
                                     link="/"
-                                    text="Continuar"
+                                    text="Iniciar con Google"
                                     color="dark"
                                     className="w-full mt-4"
                                     handleClick={() => props.setIsOpen(false)}

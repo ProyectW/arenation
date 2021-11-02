@@ -63,12 +63,12 @@ function Input(props) {
                 </label>
                 <input
                     id={props.id}
-                    type={props.type}
                     placeholder={props.placeholder}
                     className={`py-1 bg-${props.color}  placeholder-secondary-gray focus:outline-none text-base text-secondary-dark`}
                     onChange={props.handleInputChange}
                     readOnly={props.readOnly}
                     required={props.required}
+                    defaultValue={props.value ? props.value : ""}
                 />
             </div>
         );

@@ -1,6 +1,6 @@
 import { Listbox, Transition, Popover } from "@headlessui/react";
 import { ReactComponent as UpDownIcon } from "../../assets/img/iconUpDown.svg";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { AutocompleteInput, Input } from "./Input";
 import { MultiRangeSlider } from "./Slider";
 import { ReactComponent as CheckIcon } from "../../assets/img/iconCheck.svg";
@@ -211,6 +211,10 @@ function ButtonRangeSlider(props) {
         props.onChange(e, value);
         setRangeSelected(true);
     };
+
+    useEffect(() => {
+        console.log(`$${Intl.NumberFormat("en-US").format(props.value[0])}`);
+    });
     return (
         <>
             <Popover as="div">
@@ -256,7 +260,7 @@ function ButtonRangeSlider(props) {
                                         "en-US"
                                     ).format(props.value[0])}`}
                                     className="w-full mb-2"
-                                    readOnly={true}
+                                    readOnly
                                     onChange={() => setRangeSelected(true)}
                                 />
                                 <Input
@@ -267,7 +271,7 @@ function ButtonRangeSlider(props) {
                                         "en-US"
                                     ).format(props.value[1])}`}
                                     className="w-full"
-                                    readOnly={true}
+                                    readOnly
                                     onChange={() => setRangeSelected(true)}
                                 />
                             </div>
