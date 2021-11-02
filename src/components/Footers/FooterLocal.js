@@ -28,7 +28,7 @@ export default function FooterLocal(props) {
                         </li>
                     </ul>
                 </div>
-                <div className="md:w-1/3 flex flex-col pb-6 md:pb-0">
+                <div className="md:w-1/3 flex flex-col pb-6 md:pb-0 items-center">
                     <h4>Aspectos Legales</h4>
                     <ul>
                         <li>
@@ -42,7 +42,7 @@ export default function FooterLocal(props) {
                         </li>
                     </ul>
                 </div>
-                <div className="md:w-1/3 flex flex-col items-center md:items-start">
+                <div className="md:w-1/3 flex flex-col items-end md:items-end">
                     <h4>Habla con nosotros</h4>
                     <ul>
                         <li>

@@ -33,7 +33,7 @@ export default function UnLoggedNavBar() {
                 transparentNav
                     ? "bg-opacity-0 shadow-none"
                     : "bg-opacity-100 shadow-md"
-            } fixed left-0 right-0 z-20`}
+            } fixed left-0 right-0 z-10`}
         >
             <div className="px-8 py-2 sm:px-16 flex justify-between items-center">
                 <Link to="/">
@@ -41,6 +41,7 @@ export default function UnLoggedNavBar() {
                 </Link>
                 <div className="hidden md:flex items-center">
                     <Button
+                        id="register"
                         type="normal"
                         handleClick={handleClick}
                         text="Registrate"
@@ -71,8 +72,16 @@ export default function UnLoggedNavBar() {
                         >
                             <Menu.Items className=" flex flex-col divide-y-2 divide-secondary-gray divide-opacity-20 origin-top-right absolute right-16 top-20 rounded-md shadow-md pl-3 py-4 pr-4 bg-white focus:outline-none">
                                 <div className="flex flex-col">
-                                    <p className="pb-1">Registrarse</p>
-                                    <p className="pb-1">
+                                    <label
+                                        id="btnRegister"
+                                        className="pb-1 cursor-pointer"
+                                    >
+                                        Registrarse
+                                    </label>
+                                    <p
+                                        id="btnIniciar"
+                                        className="pb-1 cursor-pointer"
+                                    >
                                         Iniciar sesi&oacute;n
                                     </p>
                                 </div>
@@ -125,6 +134,7 @@ export default function UnLoggedNavBar() {
                                     handleClick={handleClick}
                                     text="Quiero ser local"
                                     color="blue"
+                                    textColor="primary-500"
                                     link="/"
                                 />
                             </div>
