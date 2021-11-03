@@ -1,5 +1,6 @@
 import React from "react";
 import SearchResultsHeader from "../components/Controls/SearchResultsHeader";
+import ArenaCard from "../components/ArenaCard";
 
 export default class Arenas extends React.Component {
     render() {
@@ -11,7 +12,17 @@ export default class Arenas extends React.Component {
 
         return (
             <div className="pt-16 pb-44">
-                <SearchResultsHeader filter={filterOptions} />
+                <div><SearchResultsHeader filter={filterOptions} /></div>
+                <div className="w-full grid grid-cols-4">
+                    <ArenaCard favorito={true}/>
+                    <ArenaCard favorito={true}/>
+                    <ArenaCard favorito={true}/>
+                    <ArenaCard favorito={false}/>
+                    <ArenaCard favorito={false}/>
+                    <ArenaCard favorito={false}/>
+                    <ArenaCard favorito={false}/>
+                    <ArenaCard favorito={false}/>
+                </div>
             </div>
         );
     }

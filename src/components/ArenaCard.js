@@ -1,22 +1,33 @@
 import { ReactComponent as IconHeart } from "../../src/assets/img/iconHeart.svg";
+import { ReactComponent as IconHearFull } from "../../src/assets/img/iconHearFull.svg";
 import { ReactComponent as IconMap } from "../../src/assets/img/iconMap.svg";
 import { ReactComponent as IconCalendar } from "../../src/assets/img/iconCalendar.svg";
 import { ReactComponent as IconStar } from "../../src/assets/img/iconStar.svg";
+import {useState} from "react";
 
 export default function ArenaCard(props) {
+    const [favorito, setFavorito] = useState(props.favorito);
     return (
-        <div className="shadow-md rounded-xl p-2 w-max">
-            <div className="w-72 rounded-lg p-1 m-1">
+        <div className="shadow-md rounded-xl p-2 w-max mx-3">
+            <div className="relative w-72 rounded-lg p-1 m-1" 
+            style={{
+                backgroundImage: `url(${"https://civideportes.com.co/wp-content/uploads/2019/10/C%C3%B3mo-hacer-una-cancha-de-f%C3%BAtbol.jpg"})`,
+            }}>
                 <div className="w-full flex justify-end">
-                    <buttom className="fixed p-2">
-                        <IconHeart />
+                    <buttom onClick={()=>setFavorito(!favorito)} className="cursor-pointer p-2">
+                    {favorito ? (
+                        <IconHearFull />
+                    ) : (
+                        <IconHeart/>
+                    )}
+                        
                     </buttom>
                 </div>
                 <img
                     className="h-72 rounded-lg object-cover"
                     alt=""
                     src={
-                        "https://civideportes.com.co/wp-content/uploads/2019/10/C%C3%B3mo-hacer-una-cancha-de-f%C3%BAtbol.jpg"
+                        ""
                     }
                 ></img>
             </div>
