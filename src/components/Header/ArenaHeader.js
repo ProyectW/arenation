@@ -9,7 +9,7 @@ import {useState} from "react";
 export default function ArenaHeader(props) {
     const [favorito, setFavorito] = useState(props.favorito);
     return(
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full px-8 py-8 sm:px-16">
             <div className="w-full">
                 <h1>{props.name}</h1>
             </div>
