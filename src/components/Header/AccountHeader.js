@@ -7,7 +7,7 @@ export default function AccountHeader(props) {
         return(
             <div className="flex flex-col w-full px-8 py-8 sm:px-16 text-secondary-dark">
                 <h1>Cuenta</h1>
-                <div className="flex flex-row mt-2">
+                <div className="flex flex-row py-2 border-b border-secondary-gray">
                     <Link to="/account">
                         <label className="cursor-pointer">{"Cuenta > "}</label>
                     </Link>
@@ -18,7 +18,7 @@ export default function AccountHeader(props) {
         return(
             <div className="flex flex-col w-full px-8 py-8 sm:px-16 text-secondary-dark">
                 <h1>Información personal</h1>
-                <div className="flex flex-row mt-2">
+                <div className="flex flex-row py-2 border-b border-secondary-gray">
                     <Link to="/account">
                         <label className="cursor-pointer">{"Cuenta > "}</label>
                     </Link>
@@ -30,7 +30,7 @@ export default function AccountHeader(props) {
         return(
             <div className="flex flex-col w-full px-8 py-8 sm:px-16 text-secondary-dark">
                 <h1>Seguridad</h1>
-                <div className="flex flex-row mt-2">
+                <div className="flex flex-row py-2 border-b border-secondary-gray">
                     <Link to="/account">
                         <label className="cursor-pointer">{"Cuenta > "}</label>
                     </Link>
@@ -42,7 +42,7 @@ export default function AccountHeader(props) {
         return(
             <div className="flex flex-col w-full px-8 py-8 sm:px-16 text-secondary-dark">
                 <h1>Métodos de pago</h1>
-                <div className="flex flex-row mt-2">
+                <div className="flex flex-row py-2 border-b border-secondary-gray">
                     <Link to="/account">
                         <label className="cursor-pointer">{"Cuenta > "}</label>
                     </Link>
