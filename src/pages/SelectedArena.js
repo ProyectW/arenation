@@ -22,22 +22,22 @@ export default class SelectedArena extends React.Component {
                     comentarios={[
                         {avatar: '',
                         nombre:'Alexandra Perez', 
-                        fecha:'Octubre de 2021', 
+                        fecha:'2021/02/12', 
                         comentario: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium, lectus quis odio a amet pharetra, convallis mauris at. '
                         },
                         {avatar: '',
                         nombre:'Jose Ayazo', 
-                        fecha:'Noviembre de 2021', 
+                        fecha:'2021/06/25', 
                         comentario: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium, lectus quis odio a amet pharetra, convallis mauris at. '
                         },
                         {avatar: '',
                         nombre:'Andrés Gracia', 
-                        fecha:'Julio de 2021', 
+                        fecha:'2021/07/25', 
                         comentario: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium, lectus quis odio a amet pharetra, convallis mauris at. '
                         },
                         {avatar: '',
                         nombre:'Faber Hoyos', 
-                        fecha:'Junio de 2021', 
+                        fecha:'2022/10/29', 
                         comentario: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium, lectus quis odio a amet pharetra, convallis mauris at. '
                         }
                     ]}

@@ -1,6 +1,7 @@
 import React from "react";
 import Avatar from "../Avatars/Avatar";
 import { ReactComponent as IconStar } from "../../../src/assets/img/iconStar.svg";
+import Fecha from '../../utils/Fecha';
 
 export default function ArenaReview(props) {
     return(
@@ -12,11 +13,11 @@ export default function ArenaReview(props) {
                     {props.puntuacion}
                 </h2>
             </div>
-            <div className="my-5 grid grid-cols-2">
+            <div className="my-5 grid grid-cols-2 gap-x-5">
                 {
                     props.comentarios.map((e)=>{
                         return(
-                            <div className="px-5 py-2">
+                            <div className="py-2">
                                 <div className="flex flex-row">
                                     <Avatar
                                         isLogged={true}
@@ -24,7 +25,7 @@ export default function ArenaReview(props) {
                                     />
                                     <div className="ml-2 flex flex-col">
                                         <label className="text-secondary-dark">{e.nombre}</label>
-                                        <label className="text-secondary-gray">{e.fecha}</label>
+                                        <label className="text-secondary-gray"><Fecha fecha={e.fecha}/></label>
                                     </div>
                                 </div>
                                 <div className="my-2">
