@@ -1,5 +1,6 @@
 import React from "react";
 import {Link } from "react-router-dom";
+import { ReactComponent as IconArrowReverse } from "../../../src/assets/img/iconArrowReverse.svg";
 
 export default function AccountHeader(props) {
     
@@ -7,9 +8,9 @@ export default function AccountHeader(props) {
         return(
             <div className="flex flex-col w-full px-8 py-8 sm:px-16 text-secondary-dark">
                 <h1>Cuenta</h1>
-                <div className="flex flex-row mt-2">
+                <div className="flex flex-row py-2 border-b border-secondary-gray">
                     <Link to="/account">
-                        <label className="cursor-pointer">{"Cuenta > "}</label>
+                        <label className="cursor-pointer flex items-center">{"Cuenta"}<IconArrowReverse/></label>
                     </Link>
                 </div>
             </div>
@@ -18,9 +19,9 @@ export default function AccountHeader(props) {
         return(
             <div className="flex flex-col w-full px-8 py-8 sm:px-16 text-secondary-dark">
                 <h1>Información personal</h1>
-                <div className="flex flex-row mt-2">
+                <div className="flex flex-row py-2 border-b border-secondary-gray">
                     <Link to="/account">
-                        <label className="cursor-pointer">{"Cuenta > "}</label>
+                        <label className="cursor-pointer flex items-center">{"Cuenta"}<IconArrowReverse/></label>
                     </Link>
                     <label>{"Información personal"}</label>
                 </div>
@@ -30,9 +31,9 @@ export default function AccountHeader(props) {
         return(
             <div className="flex flex-col w-full px-8 py-8 sm:px-16 text-secondary-dark">
                 <h1>Seguridad</h1>
-                <div className="flex flex-row mt-2">
+                <div className="flex flex-row py-2 border-b border-secondary-gray">
                     <Link to="/account">
-                        <label className="cursor-pointer">{"Cuenta > "}</label>
+                        <label className="cursor-pointer flex items-center">{"Cuenta"}<IconArrowReverse/></label>
                     </Link>
                     <label>{"Seguridad"}</label>
                 </div>
@@ -42,9 +43,9 @@ export default function AccountHeader(props) {
         return(
             <div className="flex flex-col w-full px-8 py-8 sm:px-16 text-secondary-dark">
                 <h1>Métodos de pago</h1>
-                <div className="flex flex-row mt-2">
+                <div className="flex flex-row py-2 border-b border-secondary-gray">
                     <Link to="/account">
-                        <label className="cursor-pointer">{"Cuenta > "}</label>
+                        <label className="cursor-pointer flex items-center">{"Cuenta"}<IconArrowReverse/></label>
                     </Link>
                     <label>{"Métodos de pago"}</label>
                 </div>
