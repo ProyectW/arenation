@@ -1,32 +1,53 @@
 import React from "react";
+import {Link } from "react-router-dom";
 
 export default function AccountHeader(props) {
     
     if(props.place === "cuenta"){
-            
-        <div className="flex flex-col w-full px-8 py-8 sm:px-16 text-secondary-dark">
-            <h1>Cuenta</h1>
-            <label>{"Cuenta > "}</label>
-        </div>
+        return(
+            <div className="flex flex-col w-full px-8 py-8 sm:px-16 text-secondary-dark">
+                <h1>Cuenta</h1>
+                <div className="flex flex-row mt-2">
+                    <Link to="/account">
+                        <label className="cursor-pointer">{"Cuenta > "}</label>
+                    </Link>
+                </div>
+            </div>
+        );
     }else if(props.place === "info"){
         return(
             <div className="flex flex-col w-full px-8 py-8 sm:px-16 text-secondary-dark">
                 <h1>Información personal</h1>
-                <label>{"Cuenta > Información personal"}</label>
+                <div className="flex flex-row mt-2">
+                    <Link to="/account">
+                        <label className="cursor-pointer">{"Cuenta > "}</label>
+                    </Link>
+                    <label>{"Información personal"}</label>
+                </div>
             </div>
         );
     }else if(props.place === "seguridad"){
         return(
             <div className="flex flex-col w-full px-8 py-8 sm:px-16 text-secondary-dark">
                 <h1>Seguridad</h1>
-                <label>{"Cuenta > Seguridad"}</label>
+                <div className="flex flex-row mt-2">
+                    <Link to="/account">
+                        <label className="cursor-pointer">{"Cuenta > "}</label>
+                    </Link>
+                    <label>{"Seguridad"}</label>
+                </div>
             </div>
         );
     }else if(props.place === "metodos"){
         return(
             <div className="flex flex-col w-full px-8 py-8 sm:px-16 text-secondary-dark">
-                <h1>{"Métodos de pago"}</h1>
-                <label>{"Cuenta > Métodos de pago"}</label>
+                <h1>Métodos de pago</h1>
+                <div className="flex flex-row mt-2">
+                    <Link to="/account">
+                        <label className="cursor-pointer">{"Cuenta > "}</label>
+                    </Link>
+                    <label>{"Métodos de pago"}</label>
+                </div>
             </div>
         );
     }

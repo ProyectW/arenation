@@ -8,7 +8,7 @@ import Avatar from "../Avatars/Avatar";
 export default function AccountConf(props) {
     const [date, setDate] = useState("");
     return(
-        <div className="flex flex-col-reverse md:flex-row pt-32 pb-44 px-8 py-8 sm:px-16 gap-x-10">
+        <div className="flex flex-col-reverse md:flex-row px-8 sm:px-16 gap-x-10">
             <div className="flex flex-col w-full md:w-2/3">
                 <div className="flex flex-col">
                     <form>
@@ -84,7 +84,7 @@ export default function AccountConf(props) {
                             />
                             <IconEdit className="absolute cursor-pointer -right-2.5 -bottom-2.5 p-1 border-2 border-white bg-secondary-light rounded-full fill-current text-primary-500"/>
                         </div>
-                        <h5 className="mt-4 text-secondary-dark">{props.name}</h5>
+                        <h5 className="mt-4 text-secondary-dark">Jose Ayazo{props.name}</h5>
                     </div>
                     <div className="h-2/4 flex flex-col items-center justify-end text-primary-500">
                         <h3>14{props.reseñas}</h3>
