@@ -1,5 +1,6 @@
 import React from "react";
 import ArenaHeader from "../components/Header/ArenaHeader";
+import ArenaDetails from "../components/Details/ArenaDetails";
 
 export default class SelectedArena extends React.Component {
     render() {
@@ -10,6 +11,11 @@ export default class SelectedArena extends React.Component {
                     puntuacion="4.5"
                     ubicacion="Montería, Córdoba"
                     favorito={true}/>
+                <ArenaDetails
+                    cancha="Fútbol"
+                    cesped="Cesped Natural"
+                    local="José Ayazo"
+                    facilidades={['Vestuarios','Baños','Duchas','Bar','Restaurante']}/>
             </div>
         );
     }
