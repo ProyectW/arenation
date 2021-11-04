@@ -9,6 +9,8 @@ module.exports = {
             "secondary-dark": "#070928",
             "secondary-light": "#F8F8FA",
             "secondary-gray": "#9CA3AF",
+            "primary-800": "#0A142F",
+            white: "#FFFFFF",
             danger: "#F16063",
             warning: "#FFB020",
             success: "#66CB9F",
@@ -17,10 +19,23 @@ module.exports = {
             noto: ["Noto Sans", "sans-serif"],
             gilroy: ["Gilroy", "sans-serif"],
         },
-        extend: {},
+        extend: {
+            outline: {
+                blue: ["2px solid #1045FF", "-2px"],
+                white: ["2px solid #FFFFFF", "-2px"],
+                dark: ["2px solid #070928", "-2px"],
+            },
+            boxShadow: {
+                DropDown: "0px 6px 20px rgba(0, 0, 0, 0.2)",
+            },
+        },
     },
     variants: {
-        extend: {},
+        extend: {
+            backgroundColor: ["checked"],
+            borderColor: ["checked"],
+            fill: ["checked"],
+        },
     },
     plugins: [],
 };

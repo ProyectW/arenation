@@ -1,0 +1,76 @@
+.DatePicker {
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+}
+
+
+.DatePicker__calendarContainer.-top + .DatePicker__calendarArrow {
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.DatePicker__calendarContainer {
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.DatePicker__calendarContainer.-top {
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+  
+.Calendar__yearSelectorText {
+    border: none;
+    font-size: 1.4em;
+    min-width: 85%;
+    padding: 0.2em 0.5em;
+    border-radius: 0.25rem;
+}
+
+.Calendar__monthSelectorItemText {
+    border: none;
+    padding: 0.4em 0.4em;
+    border-radius: 0.25rem;
+    font-size: 1.3em;
+    min-width: 70%;
+    transition: 0.3s;
+  }
+
+  .Calendar__day {
+    border-radius: 0.25rem;
+  }
+
+  .Calendar__day:not(.-blank):not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween):not(.-selected):hover {
+    background: #eaeaea;
+    border-radius: 0.25em;
+    color: var(--cl-color-black);
+    border-color: transparent;
+  }
+  .Calendar__day.-rtl.-selectedStart {
+    border-radius: 0;
+    border-top-right-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
+  }
+
+  .Calendar__day.-ltr.-selectedEnd {
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+  }
+  
+  .Calendar__day.-rtl.-selectedEnd {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+  }
+
+
+  .Calendar__day.-selected {
+    border-radius: 0.25rem;
+  }
