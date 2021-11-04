@@ -15,7 +15,7 @@ export default function Button(props) {
         );
     } else if (props.type === "outline") {
         return (
-            <Link to={props.link}>
+            <Link className="w-full" to={props.link}>
                 <button
                     className={`text-${props.textColor} font-semibold outline-${props.color} px-5 py-4 rounded-lg ${props.className}`}
                     onClick={props.handleClick}
@@ -23,6 +23,25 @@ export default function Button(props) {
                     {props.text}
                 </button>
             </Link>
+        );
+    }else if (props.type === "normalWith") {
+        return (
+            <button
+                id={props.id}
+                className={`bg-primary-500 text-white font-semibold px-5 py-4 rounded-lg ${props.className}`}
+                onClick={props.handleClick}
+            >
+                {props.text}
+            </button>
+        );
+    }else if (props.type === "outlineWith") {
+        return (
+                <button
+                    className={`text-${props.textColor} font-semibold outline-${props.color} px-5 py-4 rounded-lg ${props.className}`}
+                    onClick={props.handleClick}
+                >
+                    {props.text}
+                </button>
         );
     } else if (props.type === "iconBtn") {
         return (
