@@ -4,7 +4,7 @@ import { ReactComponent as ChuloIcon } from "../../assets/img/iconChulo.svg";
 
 export default function ArenaDetalis(props) {
     return(
-        <div  className="flex flex-col w-full px-8 py-8 sm:px-16  text-secondary-dark">
+        <div className="flex flex-col w-full px-8 py-8 sm:px-16  text-secondary-dark">
             <div className="flex flex-col border-b border-secondary-gray py-3">
                 <h2>Escenario de {props.cancha} con {props.cesped}</h2>
                 <div className="flex flex-row items-center">
