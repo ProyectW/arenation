@@ -3,9 +3,12 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
-@font-face {
-    font-family: "Gilroy";
-    src: local("Gilroy"), url(./assets/fonts/Gilroy-Regular.ttf) format("ttf");
+@layer base{
+    @font-face {
+        font-family: "Gilroy";
+        src: url(./assets/fonts/Gilroy-Regular.ttf) format("ttf");
+        font-weight: 400;
+    }
 }
 
 h1,
