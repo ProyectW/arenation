@@ -1,4 +1,4 @@
-import { React, useState, useRef, Fragment, useEffect } from "react";
+import { React, useState, Fragment} from "react";
 import { ReactComponent as CloseIcon } from "../../assets/img/closeIcon.svg";
 import { ReactComponent as CheckIcon } from "../../assets/img/iconCheck.svg";
 import { Dialog, Transition } from "@headlessui/react";
