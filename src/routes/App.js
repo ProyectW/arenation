@@ -12,7 +12,15 @@ const App = () => (
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/arenas" component={Arenas} />
-                <Route exact path="/account" component={Account} />
+                <Route exact path="/account">
+                    <Account type="cuenta"/>
+                </Route>
+                <Route exact path="/account/seguridad">
+                    <Account type="seguridad"/>
+                </Route>
+                <Route exact path="/account/informacion">
+                    <Account type="info"/>
+                </Route>
                 <Route exact path="/arenas/selected" component={SelectedArena} />
             </Switch>
         </LayoutAway>
