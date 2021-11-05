@@ -93,7 +93,7 @@ export default function Button(props) {
         <div
           className={`flex flex-col p-2 bg-secondary-light text-secondary-dark rounded-lg ${props.className}`}
         >
-          <label className="font-semibold text-secondary-dark text-sm">
+          <label className="cursor-pointer font-semibold text-secondary-dark text-sm">
             {props.label}
           </label>
           <button
