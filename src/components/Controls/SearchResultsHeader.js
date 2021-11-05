@@ -176,17 +176,17 @@ export default function SearchResultsHeader(props) {
                         text="Servicios"
                     />
                     <Button
-                        type="outline"
+                        type="outlineWith"
                         text="Borrar Filtros"
-                        color="blue"
+                        color="dark"
                         textColor="secondary-dark"
                         className="ml-2"
+                        handleClick={resetAllFilters}
                     />
                 </div>
                 <div className="flex md:hidden pt-4">
                     <Button
-                        link="/Arenas"
-                        type="outline"
+                        type="outlineWith"
                         color="dark"
                         textColor="secondary-dark"
                         text="Filtros"
