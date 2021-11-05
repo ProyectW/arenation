@@ -591,7 +591,7 @@ function SimpleDate(props) {
 
     return (
         <div
-            className={`mt-2 flex flex-col p-2 ${props.className} text-secondary-dark bg-secondary-light rounded-lg w-full`}
+            className={`flex flex-col p-2 ${props.className} text-secondary-dark bg-secondary-light rounded-lg w-full`}
         >
             <label className="font-semibold text-secondary-dark text-sm bg-secondary-light">
                 {props.label}

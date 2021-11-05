@@ -78,7 +78,7 @@ export default function LoggedNavBar(props) {
                                     <Link to="/" className="py-1">
                                         Cambiar a local
                                     </Link>
-                                    <Link to="/" className="pb-2">
+                                    <Link to="/account" className="pb-2">
                                         Mi cuenta
                                     </Link>
                                 </div>

@@ -6,9 +6,9 @@ export default function LayoutAway(props) {
     return (
         <>
             <NavBar
-                isLog={false}
+                isLog={true}
                 isLocal={false}
-                isAway={false}
+                isAway={true}
                 openManager={false}
             />
             <main>{props.children}</main>
