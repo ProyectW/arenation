@@ -4,7 +4,7 @@ import {
     ButtonRangeSlider,
     ButtonCheckboxGroup,
 } from "./DropDown";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "../Controls/Buttons";
 import FilterOverlay from "../Overlays/FilterOverlay";
 import { ReactComponent as MarkerIcon } from "../../assets/img/iconMap.svg";
@@ -108,14 +108,31 @@ export default function SearchResultsHeader(props) {
         setRangePrice(newValue);
     };
 
+    // Reset Filters
+    const resetAllFilters = () => {
+        setIsFilledCity("");
+        setSelectedSport("");
+        setRangePrice([rangePriceData.minValue, rangePriceData.maxValue]);
+        setSelectedSurface("");
+        setCheckedFacilities(
+            facilitiesData.map((facility) => {
+                return {
+                    id: facility.id,
+                    name: facility.name,
+                    isChecked: false,
+                };
+            })
+        );
+    };
+
     return (
         <>
             <div className="px-8 py-8 sm:px-16 flex flex-col w-full">
                 <span className="text-sm font-medium">{`${props.filter.resultCount} resultados encontrados`}</span>
                 <h1>
                     {`Arenas ${
-                        props.filter.sport ? "de " + props.filter.sport : ""
-                    } ${props.filter.city ? "En " + props.filter.city : ""}`}
+                        selectedSport ? "de " + selectedSport.name : ""
+                    } ${isFilledCity ? "En " + isFilledCity : ""}`}
                 </h1>
                 <div className="hidden md:flex pt-4">
                     <ButtonAutocompleteDropDown
@@ -135,6 +152,7 @@ export default function SearchResultsHeader(props) {
                     />
                     <ButtonRangeSlider
                         textInitialValue="Precio"
+                        step={1000}
                         min={rangePriceData.minValue}
                         max={rangePriceData.maxValue}
                         value={rangePrice}
@@ -157,6 +175,13 @@ export default function SearchResultsHeader(props) {
                         className="ml-2"
                         text="Servicios"
                     />
+                    <Button
+                        type="outline"
+                        text="Borrar Filtros"
+                        color="blue"
+                        textColor="secondary-dark"
+                        className="ml-2"
+                    />
                 </div>
                 <div className="flex md:hidden pt-4">
                     <Button
@@ -169,18 +194,36 @@ export default function SearchResultsHeader(props) {
                     />
                     <FilterOverlay
                         state={{
-                            city: [
-                                isFilledCity,
-                                setIsFilledCity,
-                                citySuggestions,
-                            ],
-                            sport: [selectedSport, setSelectedSport],
-                            price: [rangePrice, setRangePrice],
-                            surface: [selectedSurface, selectedSurface],
-                            facility: [checkedFacilities, setCheckedFacilities],
+                            city: {
+                                isFilledCity: isFilledCity,
+                                setIsFilledCity: setIsFilledCity,
+                                citySuggestions: citySuggestions,
+                            },
+                            sport: {
+                                selectedSport: selectedSport,
+                                setSelectedSport: setSelectedSport,
+                                sportOptions: sportOptions,
+                            },
+                            price: {
+                                rangePrice: rangePrice,
+                                setRangePrice: setRangePrice,
+                                handlePriceRangeChange: handlePriceRangeChange,
+                                rangePriceData: rangePriceData,
+                            },
+                            surface: {
+                                selectedSurface: selectedSurface,
+                                setSelectedSurface: setSelectedSurface,
+                                arenaOptions: arenaOptions,
+                            },
+                            facility: {
+                                checkedFacilities: checkedFacilities,
+                                setCheckedFacilities: setCheckedFacilities,
+                            },
                         }}
                         isOpen={isFilterOverlayOpen}
                         setIsOpen={setIsFilterOverlayOpen}
+                        valuePrice={rangePrice}
+                        handleClearButtonClick={resetAllFilters}
                     />
                 </div>
             </div>

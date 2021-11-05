@@ -21,7 +21,7 @@ function ListBox(props) {
             <Listbox value={props.selected} onChange={props.setSelected}>
                 <div className="py-1 focus:outline-none">
                     <Listbox.Button className="flex justify-between w-full focus:outline-none">
-                        <span>{props.selected.text}</span>
+                        <span>{props.selected.name}</span>
                         <UpDownIcon className="fill-current text-secondary-gray w-4" />
                     </Listbox.Button>
                     <Transition
@@ -30,10 +30,12 @@ function ListBox(props) {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <Listbox.Options className="absolute flex flex-col bg-white mt-6 max-h-48 leading-6 rounded-lg py-4 pl-4 pr-8 shadow-xl overflow-auto focus:outline-none z-10">
-                            {props.options.map((sportItem) => (
+                        <Listbox.Options
+                            className={`absolute flex flex-col bg-white mt-6 max-h-48 leading-6 rounded-lg py-4 pl-4 pr-8 shadow-DropDown overflow-auto focus:outline-none ${props.zIndex}`}
+                        >
+                            {props.options.map((item) => (
                                 <Listbox.Option
-                                    key={sportItem.id}
+                                    key={item.id}
                                     className={({ active }) =>
                                         `${
                                             active
@@ -41,9 +43,9 @@ function ListBox(props) {
                                                 : "text-secondary-dark"
                                         } cursor-pointer select-none`
                                     }
-                                    value={sportItem}
+                                    value={item}
                                 >
-                                    {sportItem.text}
+                                    {item.name}
                                 </Listbox.Option>
                             ))}
                         </Listbox.Options>
@@ -78,7 +80,7 @@ function ButtonListBox(props) {
                         props.selected.name ? "primary-500" : "secondary-dark"
                     } font-semibold outline-${
                         props.selected.name ? "blue" : "dark"
-                    } px-5 py-3 rounded-lg ${props.className}`}
+                    } px-5 py-4 rounded-lg ${props.className}`}
                 >
                     {props.selected.name
                         ? props.selected.name
@@ -144,7 +146,7 @@ function ButtonCheckboxGroup(props) {
                             .length > 0
                             ? "blue"
                             : "dark"
-                    } px-5 py-3 rounded-lg ${props.className}`}
+                    } px-5 py-4 rounded-lg ${props.className}`}
                 >
                     {`${props.text}`}
                     {props.checkedItems.filter((item) => item.isChecked)
@@ -212,9 +214,6 @@ function ButtonRangeSlider(props) {
         setRangeSelected(true);
     };
 
-    useEffect(() => {
-        console.log(`$${Intl.NumberFormat("en-US").format(props.value[0])}`);
-    });
     return (
         <>
             <Popover as="div">
@@ -223,7 +222,7 @@ function ButtonRangeSlider(props) {
                         isRangeSelected ? "primary-500" : "secondary-dark"
                     } font-semibold outline-${
                         isRangeSelected ? "blue" : "dark"
-                    } px-5 py-3 rounded-lg ${props.className}`}
+                    } px-5 py-4 rounded-lg ${props.className}`}
                 >
                     {isRangeSelected
                         ? `$${Intl.NumberFormat("en-US").format(
@@ -245,6 +244,7 @@ function ButtonRangeSlider(props) {
                     <Popover.Panel className="absolute flex flex-col bg-white mt-6 ml-2 leading-6 rounded-lg p-4 shadow-DropDown focus:outline-none z-10">
                         <div className="flex flex-col">
                             <MultiRangeSlider
+                                step={props.step}
                                 min={props.min}
                                 max={props.max}
                                 value={props.value}
@@ -284,7 +284,9 @@ function ButtonRangeSlider(props) {
 }
 
 function ButtonAutocompleteDropDown(props) {
-    const [inputValue, setInputValue] = useState("");
+    const [inputValue, setInputValue] = useState(
+        props.value ? props.value : ""
+    );
     const handleButtonClick = () => {
         props.setValue(inputValue);
     };
@@ -296,7 +298,7 @@ function ButtonAutocompleteDropDown(props) {
                         props.value ? "primary-500" : "secondary-dark"
                     } font-semibold outline-${
                         props.value ? "blue" : "dark"
-                    } px-5 py-3 rounded-lg ${props.className}`}
+                    } px-5 py-4 rounded-lg ${props.className}`}
                 >
                     {props.value ? props.value : props.textInitialValue}
                 </Popover.Button>
@@ -319,6 +321,7 @@ function ButtonAutocompleteDropDown(props) {
                                 handleInputChange={(value) =>
                                     setInputValue(value)
                                 }
+                                value={props.value}
                                 className="w-full"
                                 suggestions={props.suggestions}
                             />

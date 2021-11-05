@@ -8,9 +8,9 @@ import Button from "./Controls/Buttons";
 
 export default function Hero() {
     const options = [
-        { id: 1, text: "Fútbol" },
-        { id: 2, text: "Baloncesto" },
-        { id: 3, text: "Béisbol" },
+        { id: 1, name: "Fútbol" },
+        { id: 2, name: "Baloncesto" },
+        { id: 3, name: "Béisbol" },
     ];
     const [location, setLocation] = useState("");
     const [selectedSport, setSelectedSport] = useState(options[0]);
@@ -52,6 +52,7 @@ export default function Hero() {
                         options={options}
                         setSelected={setSelectedSport}
                         selected={selectedSport}
+                        zIndex="z-10"
                     />
                     <SimpleDatePicker
                         placeholder="¿Qu&eacute; d&iacute;a quieres jugar?"
