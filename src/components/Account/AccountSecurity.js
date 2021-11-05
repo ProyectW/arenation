@@ -3,10 +3,13 @@ import { Input } from "../Controls/Input";
 import GoogleIcon from "../../assets/img/iconGoogleColor.svg";
 import FacebookIcon from "../../assets/img/iconFacebookColor.svg";
 import Button from "../Controls/Buttons";
+import {useState}  from "react";
+
 
 export default function AccountSecurity(props) {
+    const [password, setPassword] = useState('');
   return (
-    <div className="flex flex-col-reverse md:flex-col px-8 sm:px-16 gap-x-10 w-full">
+    <div className="flex flex-col md:flex-col px-8 sm:px-16 gap-x-10 w-full">
       <form className="py-1 my-2 w-full">
         <h3>Contraseña</h3>
         <Input
@@ -15,7 +18,7 @@ export default function AccountSecurity(props) {
           placeholder="Ingrese su contraseña actual"
           color="secondary-light"
           className="w-full mb-5"
-          onChange={(e) => e.target.value}
+          onChange={(e) => setPassword(e.target.value)} 
           required
         />
         <div className="flex flex-row gap-x-3 pb-2">
