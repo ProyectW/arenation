@@ -13,7 +13,7 @@ export default class Arenas extends React.Component {
         return (
             <div className="pt-16 pb-44">
                 <div><SearchResultsHeader filter={filterOptions} /></div>
-                <div className="px-8 py-8 sm:px-16 grid grid-cols-4">
+                <div className="px-8 py-8 sm:px-16 grid grid-cols-3 justify-items-center">
                     <ArenaCard favorito={true}/>
                     <ArenaCard favorito={true}/>
                     <ArenaCard favorito={true}/>

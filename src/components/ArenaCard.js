@@ -11,7 +11,7 @@ export default function ArenaCard(props) {
     return (
         <>
             <Link to="arenas/selected">
-                <div className="cursor-pointer shadow-DropDown rounded-xl p-2 w-max mx-3">
+                <div className="cursor-pointer shadow-DropDown rounded-xl p-2 w-max mx-3 mb-10">
                     <div className="relative w-72 rounded-lg p-1 m-1" 
                     style={{
                         backgroundImage: `url(${"https://civideportes.com.co/wp-content/uploads/2019/10/C%C3%B3mo-hacer-una-cancha-de-f%C3%BAtbol.jpg"})`,
