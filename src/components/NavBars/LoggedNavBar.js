@@ -64,7 +64,7 @@ export default function LoggedNavBar(props) {
                         >
                             <Menu.Items className=" flex flex-col divide-y-2 divide-secondary-gray divide-opacity-20 origin-top-right absolute right-16 top-20 rounded-md shadow-md pl-3 py-4 pr-4 bg-white focus:outline-none">
                                 <div className="flex flex-col">
-                                    <Link to="/" className="pb-1">
+                                    <Link to="/notifications" className="pb-1">
                                         Notificaciones
                                     </Link>
                                     <Link to="/" className="pb-1">
@@ -127,7 +127,7 @@ export default function LoggedNavBar(props) {
                             </div>
                             <div className="flex flex-col items-end justify-center divide-y-2 divide-secondary-gray divide-opacity-20  w-full text-secondary-dark">
                                 <div className="flex flex-col  text-right w-full">
-                                    <Link to="/" className="py-1">
+                                    <Link to="/notifications" className="py-1">
                                         Notificaciones
                                     </Link>
                                     <Link to="/" className="pb-1">
@@ -141,7 +141,7 @@ export default function LoggedNavBar(props) {
                                     <Link to="/" className="py-1">
                                         Cambiar a local
                                     </Link>
-                                    <Link to="/" className="pb-2">
+                                    <Link to="/account" className="pb-2">
                                         Mi cuenta
                                     </Link>
                                     <Link to="/" className="pb-2">

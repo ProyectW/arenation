@@ -5,6 +5,7 @@ import LayoutAway from "../layouts/LayoutAway";
 import Arenas from "../pages/Arenas";
 import SelectedArena from "../pages/SelectedArena";
 import Account from "../pages/Account";
+import Notifications from "../pages/Notifications";
 
 const App = () => (
     <BrowserRouter>
@@ -22,6 +23,7 @@ const App = () => (
                     <Account type="info"/>
                 </Route>
                 <Route exact path="/arenas/selected" component={SelectedArena} />
+                <Route exact path="/notifications" component={Notifications} />
             </Switch>
         </LayoutAway>
     </BrowserRouter>
