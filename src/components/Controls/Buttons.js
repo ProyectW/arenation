@@ -30,6 +30,7 @@ export default function Button(props) {
     return (
       <button
         id={props.id}
+        type={props.tipo}
         className={`bg-primary-500 text-white font-semibold px-5 py-4 rounded-lg ${props.className}`}
         onClick={props.handleClick}
       >
