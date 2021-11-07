@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { ReactComponent as CloseIcon} from "../../assets/img/closeIcon.svg";
+
 
 export default function Button(props) {
   if (props.type === "normal") {
@@ -105,6 +107,32 @@ export default function Button(props) {
           </button>
         </div>
       </Link>
+    );
+  }else if (props.type === "infoBtnLogo") {
+    return (
+        <div
+          className={`flex flex-col md:flex-row items-center p-2 bg-secondary-light text-secondary-dark rounded-lg ${props.className}`}
+        >
+          <div className="flex flex-row p-1 w-max items-center justify-center mx-2 bg-white rounded-lg">
+            <img
+              alt={props.alt}
+              src={props.children}
+            />
+          </div>
+          <div className="flex flex-col w-full bg-secondary-light text-secondary-dark">
+            <label className="font-semibold text-secondary-dark text-sm">
+              {props.label}
+            </label>
+            <label
+              className="text-justify py-1 bg-secondary-light text-secondary-gray text-sm"
+            >
+              {props.value}
+            </label>
+          </div>
+          <div className="flex items-center justify-end">
+            <CloseIcon className="cursor-pointer" onClick={props.onClick}/>
+          </div>
+        </div>
     );
   }
 }
