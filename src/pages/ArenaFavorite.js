@@ -1,6 +1,8 @@
 import React from "react";
 import SearchResultsHeader from "../components/Controls/SearchResultsHeader";
 import Favorite from "../components/Favorite";
+import AlertDone from "../components/AlertsPayments";
+import {AlertWrong} from "../components/AlertsPayments";
 
 export default class Notifications extends React.Component {
   render() {
@@ -20,6 +22,8 @@ export default class Notifications extends React.Component {
           <SearchResultsHeader filter={filterOptions} />
         </div>
         <Favorite arenas={arenas} />
+        <AlertDone/>
+        <AlertWrong/>
       </div>
     );
   }
