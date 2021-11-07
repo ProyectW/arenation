@@ -67,7 +67,7 @@ export default function LoggedNavBar(props) {
                                     <Link to="/notifications" className="pb-1">
                                         Notificaciones
                                     </Link>
-                                    <Link to="/" className="pb-1">
+                                    <Link to="/bookings" className="pb-1">
                                         Mis reservas{" "}
                                     </Link>
                                     <Link to="/" className="pb-2">
@@ -130,7 +130,7 @@ export default function LoggedNavBar(props) {
                                     <Link to="/notifications" className="py-1">
                                         Notificaciones
                                     </Link>
-                                    <Link to="/" className="pb-1">
+                                    <Link to="/bookings" className="pb-1">
                                         Mis reservas{" "}
                                     </Link>
                                     <Link to="/" className="pb-2">

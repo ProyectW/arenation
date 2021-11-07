@@ -6,6 +6,7 @@ import Arenas from "../pages/Arenas";
 import SelectedArena from "../pages/SelectedArena";
 import Account from "../pages/Account";
 import Notifications from "../pages/Notifications";
+import Bookings from "../pages/Bookings";
 
 const App = () => (
     <BrowserRouter>
@@ -24,6 +25,7 @@ const App = () => (
                 </Route>
                 <Route exact path="/arenas/selected" component={SelectedArena} />
                 <Route exact path="/notifications" component={Notifications} />
+                <Route exact path="/bookings" component={Bookings} />
             </Switch>
         </LayoutAway>
     </BrowserRouter>
