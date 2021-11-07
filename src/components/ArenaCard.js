@@ -10,7 +10,7 @@ export default function ArenaCard(props) {
     const [favorito, setFavorito] = useState(props.favorito);
     return (
         <>
-            <Link to="arenas/selected">
+            <Link to="selected">
                 <div className="cursor-pointer shadow-DropDown rounded-xl p-2 w-max mx-3 mb-10">
                     <div className="relative w-72 rounded-lg p-1 m-1" 
                     style={{
