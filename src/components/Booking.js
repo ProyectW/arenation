@@ -1,16 +1,19 @@
 import React from "react";
 import iconEmptyBookings from "../assets/img/iconEmptyBookings.svg";
 import Button from "./Controls/Buttons";
+import PayArenaCard from "./Cards/Pay/PayArenaCard";
 
 export default function Notification(props) {
-  const reservas = null;
+  const reservas = [{}];
 
   if (reservas) {
     return (
       <div className="flex flex-col w-full px-8 sm:px-16 text-secondary-dark">
         {reservas.map((e) => {
           return (
-            <div className="py-2">
+            <div className="py-2 flex flex-col grid md:grid-cols-2 gap-5 justify-items-center">
+              <PayArenaCard name="Cancha Nuevo Milenio"/>
+              <PayArenaCard name="Cancha Nuevo Milenio"/>
             </div>
           );
         })}

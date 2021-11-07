@@ -7,8 +7,7 @@ import {Input} from "../../Controls/Input";
 
 
 export default function CardLogin(props) {
-    const [hide,setHide] = useState(false)
-    console.log(hide)
+    const [hide,setHide] = useState(false);
     return(
         <>{hide ? (<></>):(<>
             <div className="flex justify-center items-center w-full h-full z-10 fixed">
