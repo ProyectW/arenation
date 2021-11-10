@@ -23,15 +23,15 @@ export default function ArenaHeader(props) {
             <div className="w-full">
                 <h1>{props.name}</h1>
             </div>
-            <div className="w-full flex flex-row items-center mt-2">
-                <div className="flex w-full items-center justify-start text-secondary-dark">
+            <div className="w-full flex flex-col md:flex-row items-center justify-between mt-2">
+                <div className="mb-4 sm:mb-2 md:mb-0 flex w-full items-center text-secondary-dark">
                     <IconStar className="fill-current text-warning" />
                     {props.score}
                     <hr className="border-2 rounded w-3 mx-1 border-primary-500"></hr>
                     <IconMap className="fill-current text-secondary-dark" />
                     {props.location}
                 </div>
-                <div className="w-full flex items-center justify-end text-secondary-dark">
+                <div className="w-full flex items-center justify-start md:justify-end text-secondary-dark">
                     <IconShare className="mx-1 fill-current text-secondary-dark" />
                     <u>Compartir</u>
                     {favorite ? (

@@ -17,6 +17,7 @@ module.exports = {
         },
         fontFamily: {
             noto: ["Noto Sans", "sans-serif"],
+            questrial: ["Questrial", "sans-serif"],
             gilroy: ["Gilroy", "sans-serif"],
         },
         extend: {
