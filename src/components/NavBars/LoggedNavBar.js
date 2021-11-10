@@ -50,7 +50,7 @@ export default function LoggedNavBar(props) {
                         <Menu.Button>
                             <Avatar
                                 isLogged={true}
-                                avatar={props.userData.avatar}
+                                src={props.userData.avatar}
                             />
                         </Menu.Button>
                         <Transition
@@ -123,6 +123,7 @@ export default function LoggedNavBar(props) {
                                     isLogged={true}
                                     avatar={props.userData.avatar}
                                     className="mb-2"
+                                    src={props.userData.avatar}
                                 />
                             </div>
                             <div className="flex flex-col items-end justify-center divide-y-2 divide-secondary-gray divide-opacity-20  w-full text-secondary-dark">
