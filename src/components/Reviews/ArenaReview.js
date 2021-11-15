@@ -6,7 +6,7 @@ import Fecha from "../../utils/Fecha";
 export default function ArenaReview(props) {
     return (
         <div className="flex flex-col w-full px-8 py-8 sm:px-16  text-secondary-dark">
-            <div className="border-b border-secondary-gray py-5">
+            <div className="border-b border-secondary-dark border-opacity-10 py-5">
                 <h2 className="flex flex-row items-center">
                     Reseñas
                     <hr className="ml-2 border-2 rounded w-3 mx-1 border-secondary-dark" />

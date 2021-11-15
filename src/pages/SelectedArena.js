@@ -3,6 +3,8 @@ import ArenaHeader from "../components/Header/ArenaHeader";
 import ArenaDetails from "../components/Details/ArenaDetails";
 import ArenaReview from "../components/Reviews/ArenaReview";
 import SelectedArenaGallery from "../components/Gallery/SelectedArenaGallery";
+import SelectedArenaSchedule from "../components/Schedule/SelectedArenaSchedule";
+
 export default class SelectedArena extends React.Component {
     constructor() {
         super();
@@ -50,6 +52,43 @@ export default class SelectedArena extends React.Component {
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                     },
                 ],
+                sechedule: [
+                    {
+                        dayOfWeek: 0,
+                        serviceHours: [7, 8, 9, 16, 17, 18, 19, 20, 21, 22],
+                        serviceState: true,
+                    },
+                    {
+                        dayOfWeek: 1,
+                        serviceHours: [18, 19, 20, 21, 23],
+                        serviceState: true,
+                    },
+                    {
+                        dayOfWeek: 2,
+                        serviceHours: [7, 8, 9, 16, 17, 18, 19, 20, 21, 22],
+                        serviceState: true,
+                    },
+                    {
+                        dayOfWeek: 3,
+                        serviceHours: ["01:00", "02:00"],
+                        serviceState: true,
+                    },
+                    {
+                        dayOfWeek: 4,
+                        serviceHours: ["01:00", "02:00"],
+                        serviceState: true,
+                    },
+                    {
+                        dayOfWeek: 5,
+                        serviceHours: ["01:00", "02:00"],
+                        serviceState: true,
+                    },
+                    {
+                        dayOfWeek: 6,
+                        serviceHours: ["01:00", "02:00"],
+                        serviceState: true,
+                    },
+                ],
             },
         };
     }
@@ -77,6 +116,9 @@ export default class SelectedArena extends React.Component {
                     localManagerAvatar={this.state.arenaData.localManagerAvatar}
                     facilities={this.state.arenaData.facilities}
                 />
+                <SelectedArenaSchedule
+                    schedule={this.state.arenaData.schedule}
+                />
                 <ArenaReview
                     score={this.state.arenaData.score}
                     comments={this.state.arenaData.reviews}
@@ -85,3 +127,5 @@ export default class SelectedArena extends React.Component {
         );
     }
 }
+
+
