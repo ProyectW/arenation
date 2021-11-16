@@ -52,7 +52,7 @@ export default class SelectedArena extends React.Component {
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                     },
                 ],
-                sechedule: [
+                schedule: [
                     {
                         dayOfWeek: 0,
                         serviceHours: [7, 8, 9, 16, 17, 18, 19, 20, 21, 22],
@@ -60,7 +60,7 @@ export default class SelectedArena extends React.Component {
                     },
                     {
                         dayOfWeek: 1,
-                        serviceHours: [18, 19, 20, 21, 23],
+                        serviceHours: [18, 19, 20, 21, 22, 23],
                         serviceState: true,
                     },
                     {
@@ -70,25 +70,41 @@ export default class SelectedArena extends React.Component {
                     },
                     {
                         dayOfWeek: 3,
-                        serviceHours: ["01:00", "02:00"],
+                        serviceHours: [7, 8, 9, 16, 17, 18, 19, 20, 21, 22],
                         serviceState: true,
                     },
                     {
                         dayOfWeek: 4,
-                        serviceHours: ["01:00", "02:00"],
+                        serviceHours: [7, 8, 9, 16, 17, 18, 19, 20, 21, 22],
                         serviceState: true,
                     },
                     {
                         dayOfWeek: 5,
-                        serviceHours: ["01:00", "02:00"],
+                        serviceHours: [7, 8, 9, 16, 17, 18, 19, 20, 21, 22],
                         serviceState: true,
                     },
                     {
                         dayOfWeek: 6,
-                        serviceHours: ["01:00", "02:00"],
+                        serviceHours: [7, 8, 9, 16, 17, 18, 19, 20, 21, 22],
                         serviceState: true,
                     },
                 ],
+                prices: {
+                    priceSchedule: [
+                        {
+                            dayOfWeek: [0, 1, 2, 3, 4, 5, 6],
+                            hoursOfDay: [18, 19, 20, 21, 22, 23],
+                            price: 70000.0,
+                        },
+                        {
+                            dayOfWeek: [0, 2, 3, 4, 5, 6],
+                            hoursOfDay: [7, 8, 9, 16, 17],
+                            price: 60000.0,
+                        },
+                    ],
+                    isFixedPrice: false,
+                    fixedPrice: 25000.0,
+                },
             },
         };
     }
@@ -118,6 +134,7 @@ export default class SelectedArena extends React.Component {
                 />
                 <SelectedArenaSchedule
                     schedule={this.state.arenaData.schedule}
+                    prices={this.state.arenaData.prices}
                 />
                 <ArenaReview
                     score={this.state.arenaData.score}
@@ -127,5 +144,3 @@ export default class SelectedArena extends React.Component {
         );
     }
 }
-
-
