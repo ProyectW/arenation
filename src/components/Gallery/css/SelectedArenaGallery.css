@@ -1,0 +1,13 @@
+.swiper-pagination {
+    @apply bottom-0 left-0 right-0;
+}
+
+.swiper-pagination-bullet {
+    @apply mx-2 bg-secondary-dark opacity-50;
+}
+.swiper-pagination-bullet-active {
+    @apply mx-2 bg-primary-500 opacity-100;
+}
+.swiper-container {
+    @apply rounded-lg;
+}

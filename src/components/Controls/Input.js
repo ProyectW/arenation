@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function Input(props) {
     const [isHidden, setHidden] = useState(true);
+    const [inputState, setInputState] = useState(props.value);
+    useEffect(() => setInputState(props.value), [props.value]);
 
     const handlePassClick = () => {
         setHidden(!isHidden);
@@ -63,12 +65,12 @@ function Input(props) {
                 </label>
                 <input
                     id={props.id}
-                    type={props.type}
                     placeholder={props.placeholder}
                     className={`py-1 bg-${props.color}  placeholder-secondary-gray focus:outline-none text-base text-secondary-dark`}
                     onChange={props.handleInputChange}
                     readOnly={props.readOnly}
                     required={props.required}
+                    value={inputState}
                 />
             </div>
         );
@@ -78,8 +80,13 @@ function Input(props) {
 function AutocompleteInput(props) {
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
-    const [inputValue, setInputValue] = useState("");
+    const [inputValue, setInputValue] = useState(props.value);
 
+    useEffect(() => {
+        if (props.value === "") {
+            setInputValue("");
+        }
+    }, [props.value]);
     const onChange = (e) => {
         const input = e.target.value;
 
@@ -124,7 +131,7 @@ function AutocompleteInput(props) {
     };
 
     return (
-        <div className="flex flex-col">
+        <div className={`flex flex-col ${props.className}`}>
             <div
                 className={`flex flex-col p-2 bg-${props.color} text-secondary-dark rounded-lg`}
             >

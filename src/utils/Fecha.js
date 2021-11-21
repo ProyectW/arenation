@@ -108,8 +108,58 @@ export function FechaMesYear(props) {
 
 export function FechaYear(props) {
   const date = new Date(props.fecha);
-
+  const day = date.getDate();
+  const month = date.getMonth();
   const year = date.getFullYear();
 
-  return year;
+  const mes = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
+
+  return day + " de " + mes[month] + " del " + year;
+}
+
+export function MonthDayYear(date) {
+  const spanishMonth = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
+  const customDate = new Date(date);
+  return `${
+    spanishMonth[customDate.getMonth()]
+  } ${customDate.getDate()}, ${customDate.getFullYear()}`;
+}
+
+export function getDayOfWeek(date) {
+  const spanishDays = [
+    "Domingo",
+    "Lunes",
+    "Martes",
+    "Miércoles",
+    "Jueves",
+    "Viernes",
+    "Sábado",
+  ];
+  return spanishDays[date.getDay()];
 }

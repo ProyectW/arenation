@@ -6,7 +6,7 @@ export default function Avatar(props) {
                 className={`rounded-lg bg-secondary-light text-secondary-gray ${props.className}`}
             >
                 <img
-                    src={props.avatar}
+                    src={props.src}
                     alt="User profile"
                     className="object-cover rounded-lg w-12"
                 />
