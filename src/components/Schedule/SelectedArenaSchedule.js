@@ -3,10 +3,18 @@ import { MonthDayYear, getDayOfWeek } from "../../utils/Fecha";
 import useDateSwiper from "../../utils/CustomHooks/useDateSwiper";
 import { ReactComponent as IconStar } from "../../assets/img/iconStar.svg";
 import { Input } from "../../components/Controls/Input";
+import { useState } from "react";
 export default function SelectedArenaSchedule(props) {
     const { rangeDate, moveAWeekToPast, moveAWeekToFuture } = useDateSwiper(
         new Date()
     );
+    const [selectedTime, setSelectedTime] = useState({
+        date: "",
+        time: "",
+        price: "",
+    });
+    const handleClickTimeItem = (date, time, price) =>
+        setSelectedTime({ date: date, time: time, price: price });
     return (
         <div className="flex flex-col w-full px-8 py-8 sm:px-16  text-secondary-dark">
             <div className="border-b border-secondary-dark border-opacity-10 py-5 mb-8">
@@ -27,29 +35,57 @@ export default function SelectedArenaSchedule(props) {
                             rangeDate={rangeDate}
                             scheduleData={props.schedule}
                             pricesData={props.prices}
+                            handleTimeItemClick={handleClickTimeItem}
                         />
                     </div>
                 </div>
-                <div className="w-full flex flex-col lg:w-1/3 shadow-DropDown md:ml-8 p-6 rounded-2xl justify-between">
-                    <div className="flex justify-between items-center">
-                        <div className="flex items-start">
-                            <h3>{`$${"70,000"}`}</h3>
-                            <span className="text-sm font-semibold pt-1">
-                                /hora
-                            </span>
+                <div className="w-full flex flex-col lg:w-1/3 shadow-DropDown  mt-8 md:mt-0 md:ml-8 p-6 rounded-2xl justify-between">
+                    <div>
+                        <div className="flex justify-between items-center">
+                            <div className="flex items-start">
+                                <h3>
+                                    {`$${Intl.NumberFormat("en-US").format(
+                                        selectedTime.price
+                                    )}`}
+                                </h3>
+                                <span className="text-sm font-semibold pt-1">
+                                    /hora
+                                </span>
+                            </div>
+                            <div className="flex items-center">
+                                <IconStar className="fill-current text-warning" />
+                                <h3>{`${4.1}`}</h3>
+                            </div>
                         </div>
-                        <div className="flex items-center">
-                            <IconStar className="fill-current text-warning" />
-                            <h3>{`${4.1}`}</h3>
+                        <div className="flex flex-col py-4 border-b border-secondary-dark border-opacity-10">
+                            <Input
+                                type="text"
+                                color="secondary-light"
+                                label="Fecha"
+                                placeholder="Fecha de reserva"
+                                value={MonthDayYear(selectedTime.date)}
+                                readOnly
+                            />
+                            <Input
+                                type="text"
+                                className="mt-2"
+                                color="secondary-light"
+                                label="Hora"
+                                placeholder="Hora de reserva"
+                                value={
+                                    toString(selectedTime.time).length > 1
+                                        ? `${selectedTime.time}:00`
+                                        : `0${selectedTime.time}:00`
+                                }
+                                readOnly
+                            />
                         </div>
                     </div>
-                    <div className="flex flex-col py-4">
-                        <Input
-                            color="secondary-light"
-                            label="Fecha"
-                            placeholder="Fecha de reserva"
-                            readOnly
-                        />
+                    <div className="flex justify-between py-4">
+                        <h5>Total</h5>
+                        <h5>{`$${Intl.NumberFormat("en-US").format(
+                            selectedTime.price
+                        )}`}</h5>
                     </div>
                 </div>
             </div>
@@ -125,6 +161,8 @@ function ScheduleTimeContainer(props) {
                                 }
                                 dayOfWeek={date.getDay()} //En la UI el primer dia es Lunes (pos 0)
                                 pricesData={props.pricesData}
+                                handleClick={props.handleTimeItemClick}
+                                date={date}
                             />
                         )
                     )}
@@ -141,8 +179,19 @@ function TimeCard(props) {
     ) {
         return (
             <div
-                className="text-center bg-primary-500 text-white p-2 w-20 rounded-lg"
+                className="text-center bg-primary-500 text-white p-2 w-20 rounded-lg cursor-pointer"
                 key={props.key}
+                onClick={() =>
+                    props.handleClick(
+                        props.date,
+                        props.timeElement,
+                        getPrice(
+                            props.pricesData,
+                            props.dayOfWeek,
+                            props.timeElement
+                        )
+                    )
+                }
             >
                 <p className="text-sm">
                     {toString(props.timeElement).length > 1
