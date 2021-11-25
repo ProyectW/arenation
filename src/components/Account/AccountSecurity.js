@@ -7,7 +7,7 @@ import Button from "../Controls/Buttons";
 export default function AccountSecurity(props) {
   return (
     <div className="flex flex-col-reverse md:flex-col px-8 sm:px-16 gap-x-10 w-full">
-      <form className="py-1 my-2 w-full">
+      <form id="fromS" className="py-1 my-2 w-full">
         <h3>Contraseña</h3>
         <Input
           type="password"
@@ -41,10 +41,14 @@ export default function AccountSecurity(props) {
         <div className="flex flex-row w-full gap-x-3">
           <Button
             className="mt-3 w-full"
-            type="normalWith"
+            type="normal"
             text="Guardar cambios"
+            link="/"
           />
           <Button
+            handleClick={()=>{
+              document.getElementById("fromS").reset();
+            }}
             className="mt-3 w-full"
             type="outlineWith"
             color="blue"

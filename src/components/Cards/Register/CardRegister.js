@@ -21,7 +21,7 @@ export default function CardSignUp(props) {
                 .getElementById("register")
                 .addEventListener("click", () => {
                     setHide(false);
-                });
+                }); 
             document
                 .getElementById("divClick")
                 .addEventListener("click", () => {
@@ -75,7 +75,6 @@ export default function CardSignUp(props) {
                                                 />
                                             </div>
                                             <Button
-                                                link=""
                                                 handleClick={() => {
                                                     const text =
                                                         document.getElementById(
@@ -92,7 +91,7 @@ export default function CardSignUp(props) {
                                                     }
                                                 }}
                                                 className="mt-3 w-full"
-                                                type="normal"
+                                                type="normalWith"
                                                 text="Continuar"
                                             />
                                         </form>
@@ -188,6 +187,13 @@ export default function CardSignUp(props) {
                                                         }
                                                     }}
                                                 />
+                                                <SimpleDate
+                                                    placeholder="DD/MM/AAAA"
+                                                    label="Fecha"
+                                                    color="secondary-light secondary-light w-full"
+                                                    date={date}
+                                                    setDate={setDate}
+                                                ></SimpleDate>
                                             </div>
                                             <div className="mt-3 p-1 flex flex-col w-full bg-secondary-light rounded-lg">
                                                 <Input
@@ -205,13 +211,6 @@ export default function CardSignUp(props) {
                                                     color="secondary-light"
                                                 />
                                             </div>
-                                            <SimpleDate
-                                                placeholder="DD/MM/AAAA"
-                                                label="Fecha"
-                                                color="secondary-light secondary-light w-full"
-                                                date={date}
-                                                setDate={setDate}
-                                            ></SimpleDate>
                                             <i className="flex items-center">
                                                 {check ? (
                                                     <CheckIcon />
@@ -235,8 +234,15 @@ export default function CardSignUp(props) {
                                             </i>
                                             <Button
                                                 className="mt-3 w-full"
-                                                type="normal"
+                                                type="normalWith"
                                                 text="Continuar"
+                                                handleClick={(e)=>{
+                                                    if(checkT === true && check === true){
+                                                    alert("Usuario registrado con exito!")}else{
+                                                        e.preventDefault();
+                                                        alert("Debes cumplir con los requisitos de contraseña")
+                                                    }
+                                                }}
                                             />
                                         </form>
                                     </div>

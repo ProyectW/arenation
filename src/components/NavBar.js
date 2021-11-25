@@ -9,8 +9,8 @@ export default function NavBar(props) {
             <LoggedNavBar
                 userData={{
                     avatar: `https://es.gravatar.com/userimage/194712154/18f91faeb0511ab57432decc5d49e6f2.jpg?size=${36}`,
-                    userName: "Jose",
-                    userLastname: "Ayazo",
+                    userName: props.nombres,
+                    userLastname: props.apellidos,
                 }}
             />
         );

@@ -11,7 +11,7 @@ export default function ArenaCard(props) {
     return (
         <>
             {/* Pass Arena ID as Atribute*/}
-            <Link to="arenas/selected">
+            <Link to="../../arenas/selected">
                 <div
                     className="cursor-pointer shadow-DropDown rounded-xl p-4 w-full"
                     key={props.arenaData.name}
@@ -22,18 +22,6 @@ export default function ArenaCard(props) {
                             backgroundImage: `url(${"https://civideportes.com.co/wp-content/uploads/2019/10/C%C3%B3mo-hacer-una-cancha-de-f%C3%BAtbol.jpg"})`,
                         }}
                     >
-                        <div className="w-full flex justify-end">
-                            <button
-                                onClick={() => setFav(!fav)}
-                                className="cursor-pointer p-2"
-                            >
-                                {fav ? (
-                                    <IconHearFull className="fill-current text-danger" />
-                                ) : (
-                                    <IconHeart className="fill-current text-secondary-dark" />
-                                )}
-                            </button>
-                        </div>
                         <img
                             className="h-72 rounded-lg object-cover"
                             alt=""

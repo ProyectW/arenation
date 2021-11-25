@@ -125,6 +125,11 @@ export default function SearchResultsHeader(props) {
         );
     };
 
+    props.setCity(isFilledCity);
+    props.setMin(rangePriceData.minValue);
+    props.setMax(rangePriceData.maxValue);
+    props.setSport(selectedSport);
+
     return (
         <>
             <div className="px-8 py-8 sm:px-16 flex flex-col w-full">

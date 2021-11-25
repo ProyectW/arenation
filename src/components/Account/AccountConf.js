@@ -11,7 +11,7 @@ export default function AccountConf(props) {
     <div className="flex flex-col-reverse md:flex-row px-8 sm:px-16 gap-x-10">
       <div className="flex flex-col w-full md:w-2/3">
         <div className="flex flex-col">
-          <form>
+          <form id="formI">
             <div className="py-1 my-2">
               <h3>Nombre</h3>
               <div className="flex flex-row gap-x-3 pb-2">
@@ -21,7 +21,6 @@ export default function AccountConf(props) {
                   color="secondary-light"
                   className="w-full"
                   onChange={(e) => e.target.value}
-                  required
                 />
                 <Input
                   label="Apellidos"
@@ -29,7 +28,6 @@ export default function AccountConf(props) {
                   color="secondary-light"
                   className="w-full"
                   onChange={(e) => e.target.value}
-                  required
                 />
               </div>
             </div>
@@ -52,7 +50,6 @@ export default function AccountConf(props) {
                 color="secondary-light"
                 className="w-full"
                 onChange={(e) => e.target.value}
-                required
               />
             </div>
             <div className="flex flex-row w-full gap-x-3">
@@ -61,8 +58,15 @@ export default function AccountConf(props) {
                 className="mt-3 w-full"
                 type="normalWith"
                 text="Guardar cambios"
+                handleClick={()=>{
+                  document.getElementById("formI").reset();
+                  alert("Cambios guardados")
+                }}
               />
               <Button
+                handleClick={() => {
+                  document.getElementById("formI").reset();
+                }}
                 className="mt-3 w-full"
                 type="outlineWith"
                 color="blue"

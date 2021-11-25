@@ -45,6 +45,7 @@ export default function Hero() {
                         label="Ubicaci&oacute;n"
                         color="white w-full"
                         handleInputChange={handleLocationChange}
+                        
                     ></Input>
                     <ListBox
                         className="bg-white"
@@ -61,7 +62,7 @@ export default function Hero() {
                         date={date}
                         setDate={setDate}
                     ></SimpleDatePicker>
-                    <Link to="/arenas">
+                    <Link to={`/arenas/city/${location}`}>
                         <button
                             onClick={handleSearchClick}
                             className="p-4 md:px-5 rounded-lg w-full h-full md:w-auto bg-primary-500 flex items-center justify-center"
@@ -78,7 +79,7 @@ export default function Hero() {
                     type="normal"
                     text="Ver todos los escenarios"
                     handleClick={handleSearchClick}
-                    link="/"
+                    link="/arenas"
                 />
                 <ArrowIcon className="fill-current text-white pt-6 w-8 animate-bounce" />
             </div>

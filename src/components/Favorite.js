@@ -9,7 +9,10 @@ export default function Favorite(props) {
       <div className="px-8 py-8 sm:px-16 grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5">
         {props.arenas.map((e) => {
           if (e.isFav === true) {
-            return(<ArenaCard arenaData={e} />);
+            const locacion = e.location.indexOf(props.city);
+            if (locacion !== -1) {
+              return <ArenaCard fav={true} arenaData={e} />;
+            }
           }
         })}
       </div>
