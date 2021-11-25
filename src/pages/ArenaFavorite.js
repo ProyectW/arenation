@@ -12,19 +12,19 @@ export default function Notifications() {
   const [sport, setSport] = useState("");
   const ArenasResults = [
     {
-      name: "Estadio Caracas",
-      location: "Cereté, Córdoba",
+      name: "Cancha Astral",
+      location: "Montería, Córdoba",
       spacesAvailable: 4,
       score: 4.2,
       price: 120000,
       isFav: true,
     },
     {
-      name: "Cancha San Martín",
-      location: "San Pelayo, Córdoba",
-      spacesAvailable: 1,
-      score: 4.6,
-      price: 25000,
+      name: "Cancha Nuevo Estrella",
+      location: "Montería, Córdoba",
+      spacesAvailable: 4,
+      score: 4.1,
+      price: 70000,
       isFav: true,
     },
     {
@@ -52,12 +52,12 @@ export default function Notifications() {
       isFav: false,
     },
     {
-      name: "Cancha Camp Nou",
+      name: "Cancha Estadio Montenegro",
       location: "Sahagún, Córdoba",
       spacesAvailable: 7,
       score: 3.9,
       price: 30000,
-      isFav: false,
+      isFav: true,
     },
   ];
 

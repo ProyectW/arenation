@@ -83,17 +83,17 @@ export default function AccountConf(props) {
             <div className="relative rounded-lg text-secondary-gray">
               <img
                 src={
-                  "https://es.gravatar.com/userimage/194712154/18f91faeb0511ab57432decc5d49e6f2.jpg?size=520"
+                  "https://static.vecteezy.com/system/resources/previews/002/275/847/non_2x/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg"
                 }
                 alt="User profile"
                 className="object-cover rounded-lg w-20"
               />
               <IconEdit className="absolute cursor-pointer -right-2.5 -bottom-2.5 p-1 border-2 border-white bg-secondary-light rounded-full fill-current text-primary-500" />
             </div>
-            <h5 className="mt-4 text-secondary-dark">Jose Ayazo{props.name}</h5>
+            <h5 className="mt-4 text-secondary-dark">Faber Hoyos{props.name}</h5>
           </div>
           <div className="h-2/4 flex flex-col items-center justify-end text-primary-500">
-            <h3>14{props.reseñas}</h3>
+            <h3>2{props.reseñas}</h3>
             <label className="mt-1 text-secondary-gray">Reseñas</label>
           </div>
         </div>

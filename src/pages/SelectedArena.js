@@ -37,7 +37,7 @@ export default class SelectedArena extends React.Component {
                 reviews: [
                     {
                         userAvatar:
-                            "https://es.gravatar.com/userimage/194712154/18f91faeb0511ab57432decc5d49e6f2.jpg?size=36",
+                            "https://i.pinimg.com/originals/19/87/90/198790eb7e08830027c1ae1686496c72.png",
                         userName: "Alexandra Lopez",
                         date: "2021/02/12",
                         comment:
@@ -45,7 +45,7 @@ export default class SelectedArena extends React.Component {
                     },
                     {
                         userAvatar:
-                            "https://es.gravatar.com/userimage/194712154/18f91faeb0511ab57432decc5d49e6f2.jpg?size=36",
+                            "https://static.vecteezy.com/system/resources/previews/002/275/847/non_2x/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg",
                         userName: "Carla Perez",
                         date: "2021/05/25",
                         comment:

@@ -13,6 +13,34 @@ export default function Notification(props) {
     {
       comentario: "Que tal te pareció la arena",
       fecha: "2021/11/05",
+    },{
+      comentario: "No olvides tu reversa, pronto llegará la hora",
+      fecha: "2021/11/05",
+    },
+    {
+      comentario: "Que tal te pareció la arena",
+      fecha: "2021/11/05",
+    },{
+      comentario: "No olvides tu reversa, pronto llegará la hora",
+      fecha: "2021/11/05",
+    },
+    {
+      comentario: "Que tal te pareció la arena",
+      fecha: "2021/11/05",
+    },{
+      comentario: "No olvides tu reversa, pronto llegará la hora",
+      fecha: "2021/11/05",
+    },
+    {
+      comentario: "Que tal te pareció la arena",
+      fecha: "2021/11/05",
+    },{
+      comentario: "No olvides tu reversa, pronto llegará la hora",
+      fecha: "2021/11/05",
+    },
+    {
+      comentario: "Que tal te pareció la arena",
+      fecha: "2021/11/05",
     }
   ];
 
@@ -29,7 +57,7 @@ export default function Notification(props) {
                 label={e.comentario}
                 value={<FechaConDia fecha={e.fecha} />}
                 onClick={()=>{
-                  console.log(e.splice(1))
+                  notifications.splice(e)
                 }}
               />
             </div>

@@ -8,7 +8,7 @@ export default function NavBar(props) {
         return (
             <LoggedNavBar
                 userData={{
-                    avatar: `https://es.gravatar.com/userimage/194712154/18f91faeb0511ab57432decc5d49e6f2.jpg?size=${36}`,
+                    avatar: `https://static.vecteezy.com/system/resources/previews/002/275/847/non_2x/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg`,
                     userName: props.nombres,
                     userLastname: props.apellidos,
                 }}
@@ -18,7 +18,7 @@ export default function NavBar(props) {
         return (
             <LoggedAsLocalNavBar
                 userData={{
-                    avatar: `https://es.gravatar.com/userimage/194712154/18f91faeb0511ab57432decc5d49e6f2.jpg?size=${36}`,
+                    avatar: `https://static.vecteezy.com/system/resources/previews/002/275/847/non_2x/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg`,
                     userName: "Jose",
                     userLastname: "Ayazo",
                 }}

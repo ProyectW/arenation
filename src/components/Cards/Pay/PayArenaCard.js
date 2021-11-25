@@ -50,7 +50,7 @@ export default function PayArenaCard(props) {
         <Divider type="normal-hor" />
         <h4 className="mt-2 mb-1">Fecha</h4>
         <label className="my-1">
-          <FechaConDia fecha="2021/01/28" />
+          <FechaConDia fecha={props.fecha} />
         </label>
         <label className="flex flex-row items-center my-1">
           06:00PM{props.horaEntrada}
@@ -63,17 +63,17 @@ export default function PayArenaCard(props) {
         <div className="flex flex-row">
           <label className="w-full my-1">Hora de servicio</label>
           {/* <label>{`${props.horaSalida-props.horaEntrada} horas`}</label> */}
-          <label className="flex w-full justify-end my-1">2 horas</label>
+          <label className="flex w-full justify-end my-1">{props.horas}</label>
         </div>
         <div className="flex flex-row">
           <label className="w-full my-1">Valor del servicio por hora</label>
           {/* <label>{props.valor}</label> */}
-          <label className="flex w-full justify-end my-1">$70.000</label>
+          <label className="flex w-full justify-end my-1">{props.servicio}</label>
         </div>
         <div className="flex flex-row">
           <h4 className="w-full my-1">Total</h4>
           {/* <h4>{`${props.horasServicio*props.valor} horas`}</h4> */}
-          <h4 className="flex w-full justify-end my-1">$140.000</h4>
+          <h4 className="flex w-full justify-end my-1">{props.valor}</h4>
         </div>
       </div>
     </div>
